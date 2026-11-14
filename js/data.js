@@ -556,6 +556,7 @@ const MATH_DATA = {
             { name: "(3 × 10) × 2 = 3 × (10 × 2)", placeholder: "propiedad...", accepted: ["asociativa"] },
             { name: "2 × (8 + 5) = (2 × 8) + (2 × 5)", placeholder: "propiedad...", accepted: ["distributiva"] }
           ],
+          quickOptions: ["conmutativa", "asociativa", "distributiva"],
           explanation: "16 × 6 = 6 × 16 cambia el orden (conmutativa). (3 × 10) × 2 cambia la agrupación con paréntesis (asociativa). 2 × (8 + 5) distribuye el factor en los sumandos (distributiva)."
         },
         {
@@ -747,14 +748,27 @@ const MATH_DATA = {
         var n1 = base1[Math.floor(Math.random() * base1.length)];
         var n2 = base2[Math.floor(Math.random() * base2.length)];
         var prod = n1 * n2;
-        var wrong1 = prod + (Math.random() > 0.5 ? 10 : -10);
-        var wrong2 = prod + (Math.random() > 0.5 ? 100 : -100);
-        var wrong3 = (n1 + 1) * n2;
-        var options = [prod, wrong1, wrong2, wrong3].sort(function() { return 0.5 - Math.random(); });
+        var candidates = [
+          prod + 10,
+          prod + 100,
+          (n1 + 1) * n2,
+          (n1 - 1) * n2,
+          prod * 10,
+          Math.max(10, Math.floor(prod / 10)),
+          prod + 20
+        ];
+        var set = new Set([prod]);
+        for (var i = 0; i < candidates.length && set.size < 4; i++) {
+          if (candidates[i] > 0 && candidates[i] !== prod) {
+            set.add(candidates[i]);
+          }
+        }
+        var options = Array.from(set).sort(function() { return 0.5 - Math.random(); });
+        var correctIdx = options.indexOf(prod);
         return {
           question: "¿Cuánto es " + n1 + " × " + n2 + "?",
-          options: options.map(String),
-          correct: options.indexOf(prod)
+          options: options.map(function(v) { return v.toLocaleString("es-ES"); }),
+          correct: correctIdx
         };
       }
     },

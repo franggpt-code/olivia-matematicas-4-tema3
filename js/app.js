@@ -57,7 +57,10 @@ class MathApp {
       distribNum: 24,
       distribFactor: 5,
       zerosBase: 48,
-      zerosMultiplier: 100
+      zerosMultiplier: 100,
+      verticalA: 354,
+      verticalB: 82,
+      verticalStep: 3
     };
 
     this.init();
@@ -556,11 +559,20 @@ class MathApp {
     else if (q.type === 'classify_inputs') {
       const itemsHtml = q.items.map((item, itemIdx) => {
         const val = (Array.isArray(currentAns) && currentAns[itemIdx]) ? currentAns[itemIdx] : '';
+        const quickHtml = Array.isArray(q.quickOptions) ? `
+          <div class="flex flex-wrap items-center gap-1 shrink-0">
+            ${q.quickOptions.map(opt => {
+              const isSelected = this.normalizeAnswerText(val) === this.normalizeAnswerText(opt);
+              return `<button type="button" onclick="app.quickClassify(${itemIdx}, '${opt.replace(/'/g, "\\'")}')" class="classify-btn ${isSelected ? 'selected' : ''}">${opt}</button>`;
+            }).join("")}
+          </div>
+        ` : '';
         return `
           <div class="p-4 bg-white rounded-2xl border-2 border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-emerald-300 transition-colors">
             <span class="text-sm sm:text-base font-bold text-slate-900 flex-1">${item.name}</span>
-            <div class="flex items-center gap-2">
-              <input type="text" id="classify-input-${itemIdx}" value="${val.replace(/"/g, '&quot;')}" placeholder="${item.placeholder || 'Escribe respuesta...'}" oninput="app.recordClassifyInput(${itemIdx}, this.value)" class="blank-input ${val ? 'filled' : ''} text-xs sm:text-sm !min-w-[170px]" autocomplete="off" autocapitalize="none" spellcheck="false">
+            <div class="flex flex-wrap items-center gap-2">
+              <input type="text" id="classify-input-${itemIdx}" value="${val.replace(/"/g, '&quot;')}" placeholder="${item.placeholder || 'Escribe respuesta...'}" oninput="app.recordClassifyInput(${itemIdx}, this.value)" class="blank-input ${val ? 'filled' : ''} text-xs sm:text-sm !min-w-[160px]" autocomplete="off" autocapitalize="none" spellcheck="false">
+              ${quickHtml}
             </div>
           </div>
         `;
@@ -733,6 +745,12 @@ class MathApp {
       this.examState.answers[qIndex] = new Array(q.items.length).fill('');
     }
     this.examState.answers[qIndex][itemIdx] = value;
+  }
+
+  quickClassify(itemIdx, typeValue) {
+    this.recordClassifyInput(itemIdx, typeValue);
+    if (window.soundManager) window.soundManager.playClick();
+    this.renderExamQuestion();
   }
 
   nextExamQuestion() {
@@ -990,7 +1008,15 @@ class MathApp {
 
   loadExpressQuestion() {
     const pool = this.data.expressPool;
-    const randomQ = pool[Math.floor(Math.random() * pool.length)];
+    const rawQ = pool[Math.floor(Math.random() * pool.length)];
+    const indexedOpts = rawQ.options.map((opt, idx) => ({ opt, isCorrect: idx === rawQ.correct }));
+    indexedOpts.sort(() => 0.5 - Math.random());
+    const randomQ = {
+      question: rawQ.question,
+      options: indexedOpts.map(o => o.opt),
+      correct: indexedOpts.findIndex(o => o.isCorrect),
+      explanation: rawQ.explanation
+    };
     this.expressState.currentQuestion = randomQ;
     this.expressState.answered = false;
 
@@ -1332,6 +1358,7 @@ class MathApp {
     this.renderLabGrid();
     this.renderLabDistributive();
     this.renderLabZeros();
+    this.renderLabVertical();
     this.renderLabFunFacts();
   }
 
@@ -1423,16 +1450,32 @@ class MathApp {
           <div>${tensProduct} + ${unitsProduct} = <span class="text-emerald-600 font-black text-lg sm:text-xl font-display">${total}</span></div>
         </div>
 
-        <div class="flex flex-wrap gap-2 pt-1">
-          <span class="text-xs text-slate-500 font-bold self-center">Prueba con:</span>
-          ${[14, 23, 35, 42].map(n => `
-            <button onclick="app.setLabDistribNum(${n})" class="px-2.5 py-1 rounded-lg text-xs font-black ${this.labState.distribNum === n ? 'bg-emerald-600 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
-              ${n}
-            </button>
-          `).join("")}
+        <div class="space-y-2 pt-1">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-xs text-slate-500 font-bold">Factor:</span>
+            ${[3, 4, 5, 6, 7, 8, 9].map(f => `
+              <button onclick="app.setLabDistribFactor(${f})" class="px-2.5 py-1 rounded-lg text-xs font-black ${this.labState.distribFactor === f ? 'bg-indigo-600 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
+                ${f}
+              </button>
+            `).join("")}
+          </div>
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-xs text-slate-500 font-bold">Número:</span>
+            ${[14, 23, 35, 42, 68, 84].map(n => `
+              <button onclick="app.setLabDistribNum(${n})" class="px-2.5 py-1 rounded-lg text-xs font-black ${this.labState.distribNum === n ? 'bg-emerald-600 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
+                ${n}
+              </button>
+            `).join("")}
+          </div>
         </div>
       </div>
     `;
+  }
+
+  setLabDistribFactor(f) {
+    this.labState.distribFactor = f;
+    if (window.soundManager) window.soundManager.playClick();
+    this.renderLabDistributive();
   }
 
   setLabDistribNum(n) {
@@ -1453,7 +1496,7 @@ class MathApp {
       <div class="p-5 bg-slate-50 rounded-2xl border-2 border-emerald-100 space-y-4">
         <div class="flex items-center justify-between">
           <span class="text-xs font-black uppercase text-slate-500">Cálculo con ceros finales:</span>
-          <span class="text-lg font-black text-slate-900">${base} × ${mult}</span>
+          <span class="text-lg font-black text-slate-900">${base.toLocaleString('es-ES')} × ${mult.toLocaleString('es-ES')}</span>
         </div>
 
         <div class="text-center py-4 bg-white rounded-xl border border-slate-200 font-display">
@@ -1461,14 +1504,24 @@ class MathApp {
             ${prod.toLocaleString('es-ES')}
           </div>
           <p class="text-xs text-slate-500 font-sans font-semibold mt-1">
-            ${mult >= 10 && mult <= 1000 ? `Se escribe ${base} y se añaden los ceros del factor.` : `Se calcula ${base} × ${mult / 100 || mult / 10} y se añaden los ceros.`}
+            ${mult === 10 || mult === 100 || mult === 1000 ? `Se escribe ${base.toLocaleString('es-ES')} y se añaden ${String(mult).length - 1} cero(s) al final.` : `Se calcula ${base.toLocaleString('es-ES')} × ${mult >= 100 ? mult / 100 : mult / 10} = ${(base * (mult >= 100 ? mult / 100 : mult / 10)).toLocaleString('es-ES')} y se añaden los ceros.`}
           </p>
         </div>
 
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-bold text-slate-500">Base:</span>
+          ${[25, 48, 109, 1305].map(b => `
+            <button onclick="app.setLabZerosBase(${b})" class="px-2.5 py-1 rounded-lg text-xs font-black ${this.labState.zerosBase === b ? 'bg-indigo-600 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
+              ${b.toLocaleString('es-ES')}
+            </button>
+          `).join("")}
+        </div>
+
         <div class="flex flex-wrap gap-2">
-          ${[10, 100, 1000, 20, 200].map(m => `
+          <span class="text-xs font-bold text-slate-500 self-center">Multiplicar por:</span>
+          ${[10, 100, 1000, 20, 200, 300].map(m => `
             <button onclick="app.setLabZerosMultiplier(${m})" class="btn-bounce px-3 py-1.5 rounded-xl text-xs font-black ${this.labState.zerosMultiplier === m ? 'bg-emerald-600 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
-              × ${m}
+              × ${m.toLocaleString('es-ES')}
             </button>
           `).join("")}
         </div>
@@ -1476,10 +1529,120 @@ class MathApp {
     `;
   }
 
+  setLabZerosBase(b) {
+    this.labState.zerosBase = b;
+    if (window.soundManager) window.soundManager.playClick();
+    this.renderLabZeros();
+  }
+
   setLabZerosMultiplier(m) {
     this.labState.zerosMultiplier = m;
     if (window.soundManager) window.soundManager.playClick();
     this.renderLabZeros();
+  }
+
+  renderLabVertical() {
+    const container = document.getElementById("lab-vertical-visualizer");
+    if (!container) return;
+
+    const a = Math.max(1, Math.min(9999, parseInt(this.labState.verticalA, 10) || 354));
+    const b = Math.max(1, Math.min(99, parseInt(this.labState.verticalB, 10) || 82));
+    const step = this.labState.verticalStep;
+
+    const unitsB = b % 10;
+    const tensB = Math.floor(b / 10);
+    const hasTens = tensB > 0;
+
+    const partialUnits = a * unitsB;
+    const partialTens = a * tensB;
+    const total = a * b;
+
+    const totalDigits = String(total).length;
+    const pad = (str) => String(str).padStart(totalDigits + 1, "\u00A0");
+
+    container.innerHTML = `
+      <div class="p-5 bg-slate-50 rounded-2xl border-2 border-emerald-100 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <input type="number" id="vert-input-a" min="1" max="9999" value="${a}" onchange="app.updateLabVerticalFromInputs()" class="w-24 px-3 py-1.5 rounded-xl border-2 border-slate-200 font-black text-center text-slate-900 bg-white">
+            <span class="font-black text-slate-500">×</span>
+            <input type="number" id="vert-input-b" min="1" max="99" value="${b}" onchange="app.updateLabVerticalFromInputs()" class="w-20 px-3 py-1.5 rounded-xl border-2 border-slate-200 font-black text-center text-slate-900 bg-white">
+            <button onclick="app.updateLabVerticalFromInputs()" class="btn-bounce px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-black">Calcular</button>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <button onclick="app.setLabVertical(247, 6)" class="px-2.5 py-1 rounded-lg text-xs font-black bg-white border border-slate-200 hover:bg-slate-100">247 × 6</button>
+            <button onclick="app.setLabVertical(354, 82)" class="px-2.5 py-1 rounded-lg text-xs font-black bg-white border border-slate-200 hover:bg-slate-100">354 × 82</button>
+            <button onclick="app.setLabVertical(1012, 24)" class="px-2.5 py-1 rounded-lg text-xs font-black bg-white border border-slate-200 hover:bg-slate-100">1.012 × 24</button>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-around gap-6 bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="font-mono text-xl sm:text-2xl font-black tracking-widest text-right leading-relaxed select-none">
+            <div class="text-slate-900">${pad(a)}</div>
+            <div class="text-slate-900 border-b-4 border-slate-800 pb-1">×${pad(b).slice(1)}</div>
+            ${hasTens ? `
+              <div class="${step >= 1 ? 'text-sky-600' : 'text-slate-200'} pt-1">
+                ${step >= 1 ? pad(partialUnits) : pad('????')}
+              </div>
+              <div class="${step >= 2 ? 'text-emerald-600' : 'text-slate-200'} border-b-4 border-slate-800 pb-1">
+                ${step >= 2 ? `+${pad(partialTens).slice(1)}<span class="bg-amber-100 text-amber-700 rounded px-1 ml-0.5" title="Hueco de las unidades">□</span>`.replace(/\u00A0$/, '') : pad('????□')}
+              </div>
+              <div class="${step >= 3 ? 'text-slate-900' : 'text-slate-200'} pt-1">
+                ${step >= 3 ? pad(total) : pad('????')}
+              </div>
+            ` : `
+              <div class="${step >= 1 ? 'text-emerald-600' : 'text-slate-200'} pt-1">
+                ${step >= 1 ? pad(total) : pad('????')}
+              </div>
+            `}
+          </div>
+
+          <div class="space-y-2 max-w-xs text-xs sm:text-sm">
+            <div class="p-3 rounded-xl ${step >= 1 ? 'bg-sky-50 border border-sky-200 text-sky-900' : 'bg-slate-50 text-slate-400'}">
+              <strong>1.º Unidades (× ${unitsB}):</strong> ${a.toLocaleString('es-ES')} × ${unitsB} = <strong>${partialUnits.toLocaleString('es-ES')}</strong>
+            </div>
+            ${hasTens ? `
+              <div class="p-3 rounded-xl ${step >= 2 ? 'bg-emerald-50 border border-emerald-200 text-emerald-900' : 'bg-slate-50 text-slate-400'}">
+                <strong>2.º Decenas (× ${tensB}):</strong> ${a.toLocaleString('es-ES')} × ${tensB} = <strong>${partialTens.toLocaleString('es-ES')}</strong> (¡recuerda dejar libre el hueco <span class="bg-amber-100 text-amber-800 px-1 rounded font-black">□</span> de las unidades!).
+              </div>
+              <div class="p-3 rounded-xl ${step >= 3 ? 'bg-amber-50 border border-amber-200 text-amber-900' : 'bg-slate-50 text-slate-400'}">
+                <strong>3.º Suma final:</strong> ${partialUnits.toLocaleString('es-ES')} + ${(partialTens * 10).toLocaleString('es-ES')} = <strong>${total.toLocaleString('es-ES')}</strong>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2">
+          <button onclick="app.setLabVerticalStep(1)" class="px-3 py-1.5 rounded-xl text-xs font-black ${step === 1 ? 'bg-sky-600 text-white' : 'bg-white border border-slate-200 text-slate-700'}">Paso 1: Unidades</button>
+          ${hasTens ? `
+            <button onclick="app.setLabVerticalStep(2)" class="px-3 py-1.5 rounded-xl text-xs font-black ${step === 2 ? 'bg-emerald-600 text-white' : 'bg-white border border-slate-200 text-slate-700'}">Paso 2: Decenas + Escalón</button>
+            <button onclick="app.setLabVerticalStep(3)" class="px-3 py-1.5 rounded-xl text-xs font-black ${step === 3 ? 'bg-amber-500 text-white' : 'bg-white border border-slate-200 text-slate-700'}">Paso 3: Resultado Final</button>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  }
+
+  setLabVertical(a, b) {
+    this.labState.verticalA = a;
+    this.labState.verticalB = b;
+    this.labState.verticalStep = b >= 10 ? 3 : 1;
+    if (window.soundManager) window.soundManager.playClick();
+    this.renderLabVertical();
+  }
+
+  setLabVerticalStep(step) {
+    this.labState.verticalStep = step;
+    if (window.soundManager) window.soundManager.playClick();
+    this.renderLabVertical();
+  }
+
+  updateLabVerticalFromInputs() {
+    const aEl = document.getElementById("vert-input-a");
+    const bEl = document.getElementById("vert-input-b");
+    const a = parseInt(aEl ? aEl.value : 354, 10) || 354;
+    const b = parseInt(bEl ? bEl.value : 82, 10) || 82;
+    this.setLabVertical(Math.max(1, Math.min(9999, a)), Math.max(1, Math.min(99, b)));
   }
 
   renderLabFunFacts() {
