@@ -1,0 +1,24 @@
+{
+  "name": "olivia-matematicas-4-tema3",
+  "version": "1.0.0",
+  "description": "Aplicación web interactiva y pedagógica para preparar el examen del Tema 3 de Matemáticas (La Multiplicación) de 4.º de Primaria (Proyecto CLAVES / Grazalema-Santillana)",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000"
+  },
+  "keywords": [
+    "matematicas",
+    "multiplicacion",
+    "propiedad-conmutativa",
+    "propiedad-asociativa",
+    "propiedad-distributiva",
+    "estimacion",
+    "operaciones-combinadas",
+    "4-primaria",
+    "santillana",
+    "claves",
+    "olivia"
+  ],
+  "author": "Fran Guerrero",
+  "license": "MIT"
+}

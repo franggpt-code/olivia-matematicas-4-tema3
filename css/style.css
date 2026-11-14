@@ -1,0 +1,356 @@
+/* =============================================================================
+   ESTILOS VISUALES · MATEMÁTICAS 4.º DE PRIMARIA · TEMA 3: LA MULTIPLICACIÓN
+   Entrenador pedagógico interactivo para Olivia · Proyecto CLAVES Santillana
+   ============================================================================= */
+
+:root {
+  --primary: #059669;        /* Esmeralda matemáticas */
+  --primary-dark: #064e3b;
+  --secondary: #0284c7;      /* Azul cálculo lógico */
+  --accent: #d97706;         /* Ámbar energía */
+  --purple: #7c3aed;         /* Violeta propiedades */
+  --success: #10b981;        /* Verde acierto */
+  --danger: #ef4444;         /* Rojo corrección */
+  --text-main: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #0f172a;
+  background: #fdfcf7;
+  background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 35%, #ecfeff 70%, #fefce8 100%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tipografía */
+.font-display { font-family: 'Outfit', -apple-system, sans-serif; letter-spacing: -0.02em; }
+.font-sans { font-family: 'Nunito', -apple-system, sans-serif; }
+
+/* =============================================================================
+   CABECERA FIJA Y SÓLIDA (PROTECCIÓN CONTRA SUPERPOSICIÓN DE CONTENIDO)
+   ============================================================================= */
+header.app-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04) !important;
+  width: 100% !important;
+}
+
+.mobile-subnav {
+  background-color: #f8fafc !important;
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+main.app-main {
+  position: relative;
+  z-index: 1;
+  padding-top: 1.5rem !important;
+  padding-bottom: 3.5rem !important;
+}
+
+/* Contenedores y Tarjetas */
+.card-playful {
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  border: 2px solid #e2e8f0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-playful:hover {
+  border-color: #a7f3d0;
+}
+
+/* =============================================================================
+   HERO BANNER DE ALTO CONTRASTE (ACCESIBILIDAD WCAG AAA)
+   Garantiza fondo verde esmeralda sólido con gradiente y máxima legibilidad
+   ============================================================================= */
+.hero-banner {
+  background-color: #064e3b !important;
+  background-image: linear-gradient(135deg, #064e3b 0%, #047857 45%, #0e7490 100%) !important;
+  color: #ffffff !important;
+  border-radius: 1.5rem !important;
+  border: 2px solid #059669 !important;
+  box-shadow: 0 14px 30px -5px rgba(6, 78, 59, 0.4) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner h2 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.hero-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.35rem 0.85rem !important;
+  border-radius: 9999px !important;
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  color: #fde047 !important; /* Amarillo oro muy visible */
+  border: 1px solid rgba(253, 224, 71, 0.5) !important;
+  font-size: 0.75rem !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.hero-p {
+  color: #f1f5f9 !important; /* Blanco hueso legible con text-shadow */
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.hero-btn-primary {
+  background-color: #ffffff !important;
+  color: #064e3b !important;
+  font-weight: 900 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+.hero-btn-primary:hover {
+  background-color: #ecfdf5 !important;
+  color: #047857 !important;
+  transform: translateY(-2px);
+}
+
+.hero-btn-secondary {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  border: 2px solid #38bdf8 !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+.hero-btn-secondary:hover {
+  background-color: #0369a1 !important;
+  transform: translateY(-2px);
+}
+
+/* Botones interactivos */
+.btn-bounce {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-bounce:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+}
+
+.btn-bounce:active {
+  transform: translateY(1px);
+}
+
+/* Opciones de test interactivo */
+.quiz-option {
+  transition: all 0.2s ease;
+  border: 2px solid #e2e8f0;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.quiz-option:hover {
+  border-color: #10b981;
+  background-color: #ecfdf5;
+  transform: translateX(4px);
+}
+
+.quiz-option.selected {
+  border-color: #059669;
+  background-color: #d1fae5;
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.3);
+}
+
+.quiz-option.correct {
+  border-color: #10b981 !important;
+  background-color: #ecfdf5 !important;
+  color: #065f46 !important;
+}
+
+.quiz-option.wrong {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+  color: #991b1b !important;
+}
+
+/* Animaciones */
+@keyframes popIn {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pop {
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Scrollbar amigable */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =============================================================================
+   EJERCICIOS DE RELLENAR NÚMEROS / PALABRAS Y COMPLETAR HUECOS
+   ============================================================================= */
+.fill-sentence {
+  font-size: 1.05rem;
+  line-height: 2.2;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.blank-input {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #064e3b;
+  background-color: #ffffff;
+  border: 2px solid #6ee7b7;
+  border-radius: 0.75rem;
+  min-width: 120px;
+  max-width: 220px;
+  text-align: center;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  margin: 0.2rem 0.3rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.blank-input:focus {
+  background-color: #ffffff;
+  border-color: #059669;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25);
+  outline: none;
+}
+.blank-input.filled {
+  background-color: #ecfdf5;
+  border-color: #10b981;
+}
+
+.word-bank-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  background-color: #ffffff;
+  border: 2px solid #a7f3d0;
+  color: #065f46;
+  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+.word-bank-chip:hover {
+  background-color: #d1fae5;
+  border-color: #34d399;
+  transform: translateY(-2px);
+}
+.word-bank-chip:active {
+  transform: scale(0.95);
+}
+
+.classify-btn {
+  padding: 0.35rem 0.85rem;
+  border-radius: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border: 2px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.classify-btn:hover {
+  border-color: #34d399;
+  color: #065f46;
+  background-color: #ecfdf5;
+}
+.classify-btn.selected {
+  background-color: #059669 !important;
+  color: #ffffff !important;
+  border-color: #047857 !important;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.3);
+}
+
+/* =============================================================================
+   LABORATORIO VISUAL DE MULTIPLICACIÓN (CUADRÍCULA Y PROPIEDADES)
+   ============================================================================= */
+.grid-cell {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  transition: all 0.2s ease;
+}
+
+/* Operación combinada visual */
+.op-card {
+  font-family: 'Outfit', monospace;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 0.75rem 1.25rem;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* =============================================================================
+   ESTILOS DE IMPRESIÓN (DIPLOMA Y ESQUEMAS)
+   ============================================================================= */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print, header, nav, footer, .btn-bounce {
+    display: none !important;
+  }
+  main.app-main {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  .card-playful {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    break-inside: avoid;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
