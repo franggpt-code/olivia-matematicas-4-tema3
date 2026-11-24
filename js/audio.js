@@ -119,7 +119,19 @@ class SoundManager {
     if (!this.voiceEnabled || !this.synth) return;
     try {
       this.synth.cancel(); // Detener locución previa
-      var clean = text.replace(/[*_#`\[\]()×·=+-]/g, ' ').replace(/\s+/g, ' ').trim();
+      var clean = text
+        .replace(/[×·]/g, ' por ')
+        .replace(/\+/g, ' más ')
+        .replace(/(\d)\s*-\s*(\d)/g, '$1 menos $2')
+        .replace(/\s-\s/g, ' menos ')
+        .replace(/(\d)\s*:\s*(\d)/g, '$1 dividido entre $2')
+        .replace(/=/g, ' igual a ')
+        .replace(/≈/g, ' aproximadamente ')
+        .replace(/≤/g, ' menor o igual que ')
+        .replace(/>/g, ' mayor que ')
+        .replace(/[*_#`\[\]()]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
       if (!clean) return;
 
       var utter = new SpeechSynthesisUtterance(clean);

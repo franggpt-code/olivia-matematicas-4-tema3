@@ -9,20 +9,18 @@
 
 ## 🎯 Índice Conceptual y Saberes Básicos
 
-Esta guía pedagógica resume de forma estructurada, amena y rigurosa todos los saberes básicos requeridos para el control oficial del **Tema 3: La Multiplicación** (Proyecto *Construyendo Mundos*, Editorial Santillana), adaptada especialmente para Olivia con explicaciones paso a paso, ejemplos de la vida real y trucos para no caer en las preguntas trampa.
+Esta guía pedagógica resume de forma estructurada, amena y rigurosa todos los saberes básicos requeridos para el control oficial del **Tema 3: La Multiplicación** (Proyecto *Construyendo Mundos*, Editorial Santillana), adaptada especialmente para Olivia con ejemplos originales distintos a los del libro, explicaciones paso a paso y trucos para no caer en las preguntas trampa.
 
 ---
 
 ### 1. ¿Qué es Multiplicar y cuáles son sus Términos?
 
 - **Multiplicar** es una forma rápida de sumar el mismo número varias veces (una suma de sumandos iguales).
-  $$\underbrace{8 + 8 + 8 + 8 + 8 + 8}_{6 \text{ veces}} = 6 \times 8 = 48$$
+  $$\underbrace{7 + 7 + 7 + 7 + 7 + 7}_{6 \text{ veces}} = 6 \times 7 = 42$$
 - **Términos de la multiplicación:**
   - **Factores:** Son los números que se multiplican entre sí.
-    - El primer factor suele indicar la cantidad que se repite (multiplicando).
-    - El segundo factor indica cuántas veces se repite (multiplicador).
   - **Producto:** Es el resultado final de la multiplicación.
-  $$\begin{matrix} & 125 & \leftarrow \text{Factor} \\ \times & 8 & \leftarrow \text{Factor} \\ \hline & 1.000 & \leftarrow \text{Producto} \end{matrix}$$
+  $$\begin{matrix} & 136 & \leftarrow \text{Factor} \\ \times & 7 & \leftarrow \text{Factor} \\ \hline & 952 & \leftarrow \text{Producto} \end{matrix}$$
 
 ---
 
@@ -30,27 +28,30 @@ Esta guía pedagógica resume de forma estructurada, amena y rigurosa todos los 
 
 #### A. Por una cifra con llevadas
 1. Se multiplica el factor de abajo por las unidades, luego por las decenas, centenas, etc.
-2. Las llevadas se suman a la cifra siguiente tras multiplicar (¡ojo: primero multiplicas y después sumas la que te llevas!).
+2. Las llevadas se suman a la cifra siguiente **después** de multiplicar.
 
 #### B. Por dos cifras (El escalón a la izquierda)
 1. Multiplicas el número de arriba por las **unidades** del factor de abajo.
-2. Multiplicas el número de arriba por las **decenas** del factor de abajo, **dejando un hueco libre en las unidades** (o poniendo un 0) y empezando a escribir debajo de las decenas.
+2. Multiplicas el número de arriba por las **decenas** del factor de abajo, **dejando un hueco libre en las unidades** (o poniendo un `0`) y empezando a escribir debajo de las decenas.
 3. Sumas los dos productos intermedios.
-   $$\begin{array}{r@{\quad}l} 354 & \\ \times \; 82 & \\ \hline 708 & \leftarrow (354 \times 2) \\ + \; 2832\phantom{0} & \leftarrow (354 \times 80) \\ \hline 29.028 & \leftarrow \text{Producto total} \end{array}$$
+   $$\begin{array}{r@{\quad}l} 268 & \\ \times \; 18 & \\ \hline 2144 & \leftarrow (268 \times 8) \\ + \; 268\phantom{0} & \leftarrow (268 \times 10) \\ \hline 4.824 & \leftarrow \text{Producto total} \end{array}$$
 
-#### C. Factores con Ceros Intermedios
-Si multiplicamos por un número con ceros en medio (por ejemplo, por $205$):
-- Al multiplicar por la decena ($0$), no hace falta escribir una fila entera de ceros; saltamos directamente a las centenas desplazando dos lugares a la izquierda.
+#### C. Factores de 3 cifras con Ceros Intermedios
+Si multiplicamos por un número con un cero en las decenas (por ejemplo, `216 × 204`):
+- Al multiplicar por las decenas (`0`), no hace falta escribir una fila entera de ceros; **saltamos dos lugares a la izquierda** (hueco de unidades y decenas) para escribir directamente el producto de las centenas:
+  - $216 \times 4 = 864$
+  - $216 \times 200 = 43.200$
+  - Total: $864 + 43.200 = 44.064$.
 
 #### D. Multiplicación por la Unidad Seguida de Ceros y Ceros Finales
 - Para multiplicar por $10, 100, 1.000$, se escribe el mismo número y se añaden **tantos ceros como ceros acompañen al 1**:
-  - $1.305 \times 10 = 13.050$
-  - $48 \times 100 = 4.800$
+  - $1.420 \times 10 = 14.200$
+  - $248 \times 100 = 24.800$
   - $72 \times 1.000 = 72.000$
-- Si multiplicamos por números que terminan en ceros ($20, 200, 4.000$):
-  - Multiplicamos los números sin los ceros y añadimos los ceros al final:
-  - $109 \times 200 \implies 109 \times 2 = 218 \implies 21.800$
-  - $25 \times 200 \implies 25 \times 2 = 50 \implies 5.000$
+- Si multiplicamos por números que terminan en ceros ($20, 300, 400$):
+  - Multiplicamos las cifras distintas de cero y añadimos todos los ceros al final:
+  - $206 \times 300 \implies 206 \times 3 = 618 \implies 61.800$
+  - $34 \times 400 \implies 34 \times 4 = 136 \implies 13.600$
 
 ---
 
@@ -58,78 +59,58 @@ Si multiplicamos por un número con ceros en medio (por ejemplo, por $205$):
 
 | Propiedad | Definición | Regla Matemática | Ejemplo Práctico |
 | :--- | :--- | :--- | :--- |
-| **1. Conmutativa** | El orden de los factores no cambia el producto. | $a \times b = b \times a$ | $16 \times 6 = 6 \times 16 = 96$ |
-| **2. Asociativa** | Para multiplicar tres números, podemos agrupar dos de ellos primero y el resultado multiplicarlo por el tercero. | $(a \times b) \times c = a \times (b \times c)$ | $(3 \times 10) \times 2 = 30 \times 2 = 60$<br>$3 \times (10 \times 2) = 3 \times 20 = 60$ |
-| **3. Distributiva** | Para multiplicar un número por una suma (o resta), se multiplica ese número por cada término y luego se suman (o restan) los resultados. | $a \times (b + c) = (a \times b) + (a \times c)$<br>$(b - c) \times a = (b \times a) - (c \times a)$ | $2 \times (8 + 5) = (2 \times 8) + (2 \times 5) = 16 + 10 = 26$<br>$(82 - 15) \times 3 = (82 \times 3) - (15 \times 3) = 246 - 45 = 201$ |
+| **1. Conmutativa** | El orden de los factores no cambia el producto. | $a \times b = b \times a$ | $14 \times 7 = 7 \times 14 = 98$ |
+| **2. Asociativa** | Para multiplicar tres números, podemos agrupar dos de ellos primero y el resultado multiplicarlo por el tercero. | $(a \times b) \times c = a \times (b \times c)$ | $(5 \times 4) \times 18 = 20 \times 18 = 360$<br>$5 \times (4 \times 18) = 5 \times 72 = 360$ |
+| **3. Distributiva** | Para multiplicar un número por una suma (o resta), se multiplica ese número por cada término y luego se suman (o restan) los resultados. | $a \times (b + c) = (a \times b) + (a \times c)$<br>$(b - c) \times a = (b \times a) - (c \times a)$ | $3 \times (7 + 4) = (3 \times 7) + (3 \times 4) = 21 + 12 = 33$<br>$(64 - 19) \times 4 = (64 \times 4) - (19 \times 4) = 256 - 76 = 180$ |
 
 #### 💡 Truco de Olivia para la Propiedad Distributiva en Cálculo Mental:
-¿Cuánto es $7 \times 43$?
-- Descomponemos $43$ en $40 + 3$:
-  $$7 \times 43 = 7 \times (40 + 3) = (7 \times 40) + (7 \times 3) = 280 + 21 = 301$$
+¿Cuánto es $6 \times 34$?
+- Descomponemos $34$ en $30 + 4$:
+  $$6 \times 34 = 6 \times (30 + 4) = (6 \times 30) + (6 \times 4) = 180 + 24 = 204$$
 
 ---
 
-### 4. Estimación de Productos (Redondeos Rápidos)
+### 4. Estimación de Productos (Redondeos en 1 y 2 Pasos)
 
-Para estimar un producto cuando no necesitamos el resultado exacto o para comprobar mentalmente si un cálculo tiene sentido:
-1. **Identificamos el factor que tiene más cifras** (o redondeamos a la decena/centena más cercana).
-2. **Aplicamos la regla del redondeo:**
-   - Si la cifra de la derecha es **$5, 6, 7, 8$ o $9$**, aumentamos en 1 la cifra a la que redondeamos.
+Para estimar un producto cuando queremos calcular aproximadamente:
+1. **Identificamos el factor que vamos a redondear** al mayor de sus órdenes (decena, centena o millar).
+2. **Aplicamos la regla del 5:**
+   - Si la cifra de la derecha es **$5, 6, 7, 8$ o $9$**, sumamos 1 al orden al que redondeamos.
    - Si la cifra de la derecha es **$0, 1, 2, 3$ o $4$**, la cifra se queda igual.
 3. Multiplicamos el número redondeado por el otro factor.
 
-**Ejemplos Oficiales de Examen:**
-- *¿Cuántos yogures se venderán en 7 días si cada día se venden 96 paquetes?*
-  - Redondeamos $96$ a las centenas: $96 \to 100$.
-  - Estimamos paquetes en una semana: $100 \times 7 = 700$ paquetes estimados.
-  - Como cada paquete tiene 8 yogures: $700 \times 8 \approx 5.600$ yogures.
-- *¿Cuántos paquetes de leche (de 6 briks) hacen falta para tener unos 1.200 briks?*
-  - $1.200 : 6 = 200$ paquetes aproximadamente.
+**Ejemplos de Examen:**
+- *En una papelería se venden 78 estuches de rotuladores (7 por estuche) cada día escolar (5 días). ¿Cuántos rotuladores se venderán aproximadamente en la semana?*
+  - Paso 1: Redondeamos $78 \to 80$ estuches diarios $\implies 80 \times 5 = 400$ estuches en 5 días.
+  - Paso 2: Multiplicamos por los 7 rotuladores de cada estuche $\implies 400 \times 7 = 2.800$ rotuladores estimados.
+- *¿Cuántos packs de 4 cuadernos hacen falta para tener unos 1.600 cuadernos?*
+  - $1.600 : 4 = 400$ packs aproximadamente.
 
 ---
 
-### 5. Jerarquía Sagrada de las Operaciones Combinadas
+### 5. Jerarquía Sagrada de las Operaciones Combinadas y Doble/Triple
 
-Cuando en un mismo problema o ejercicio aparecen varias operaciones juntas ($+$, $-$, $\times$ y paréntesis):
+Cuando en un mismo ejercicio aparecen varias operaciones juntas ($+$, $-$, $\times$ y paréntesis):
+1. **1.º Paréntesis `()`:** Resuelve siempre primero lo que hay dentro.
+2. **2.º Multiplicaciones `×`:** Resuélvelas antes que sumas o restas.
+3. **3.º Sumas y restas `+ -`:** De izquierda a derecha en el orden en que aparecen.
 
-```mermaid
-flowchart TD
-    P1["1.º PARÉNTESIS () <br> Resuelve siempre primero lo que esté entre paréntesis"] --> P2["2.º MULTIPLICACIONES × <br> Resuelve las multiplicaciones antes que sumas o restas"]
-    P2 --> P3["3.º SUMAS Y RESTAS + - <br> Resuelve de izquierda a derecha en el orden en que aparecen"]
-```
-
-#### Ejemplos Resueltos Paso a Paso:
-1. **Con paréntesis:**
-   $$24 \times (3 \times 6) = 24 \times 18 = 432$$
-   $$(96 + 17) \times 6 = 113 \times 6 = 678$$
-   $$(2 \times 24) - (15 + 14) = 48 - 29 = 19$$
-2. **Sin paréntesis (¡Cuidado con la trampa!):**
-   $$5 + 3 \times 8 = 5 + 24 = 29 \quad (\text{¡NUNCA } 8 \times 8!)$$
+- **¡Cuidado con la trampa!** En $24 + 6 \times 9$, primero hacemos $6 \times 9 = 54$ y después $24 + 54 = 78$ (nunca $30 \times 9$).
+- **Doble y Triple:**
+  - El **doble** es multiplicar por **2** (doble de 26: $26 \times 2 = 52$).
+  - El **triple** es multiplicar por **3** (triple de 18: $18 \times 3 = 54$).
 
 ---
 
-### 6. Problemas Reales de Almacén y Logística (Modelo de Examen)
+### 6. Preguntas Trampa Típicas de Examen Santillana CLAVES
 
-1. **Problema de Reparto y Stock Inicial:**
-   *En el almacén ya había 17 cajas de 6 briks de zumo. Llega una furgoneta con 96 cajas más de 6 briks.*
-   - Forma 1: $(17 + 96) \times 6 = 113 \times 6 = 678$ briks.
-   - Forma 2 (Distributiva): $(17 \times 6) + (96 \times 6) = 102 + 576 = 678$ briks.
-2. **Problema de Existencias y Consumo:**
-   *Valentina tenía 2 paquetes de 24 rollos de papel ecológico. Lleva 15 a su autocaravana y gasta 14 en el taller.*
-   - Operación combinada: $(2 \times 24) - 15 - 14 = 48 - 15 - 14 = 33 - 14 = 19$ rollos.
-   - O también: $(2 \times 24) - (15 + 14) = 48 - 29 = 19$ rollos.
-
----
-
-### 7. Preguntas Trampa Típicas de Examen Santillana CLAVES
-
-1. **¿Qué propiedad se aplica en $25 \times 200 = 200 \times 25$?**  
-   👉 **Propiedad Conmutativa** (cambia el orden de los factores, el resultado sigue siendo $5.000$).
-2. **¿Qué propiedad se aplica en $(3 \times 10) \times 2 = 3 \times (10 \times 2)$?**  
-   👉 **Propiedad Asociativa** (cambia la agrupación con los paréntesis, el resultado sigue siendo $60$).
-3. **¿Qué propiedad se aplica en $(82 - 15) \times 3 = (82 \times 3) - (15 \times 3)$?**  
+1. **¿Qué propiedad se aplica en $35 \times 300 = 300 \times 35$?**  
+   👉 **Propiedad Conmutativa** (cambia el orden de los factores; el producto sigue siendo $10.500$).
+2. **¿Qué propiedad se aplica en $(5 \times 4) \times 18 = 5 \times (4 \times 18)$?**  
+   👉 **Propiedad Asociativa** (cambia la agrupación con paréntesis; el producto sigue siendo $360$).
+3. **¿Qué propiedad se aplica en $(64 - 19) \times 4 = (64 \times 4) - (19 \times 4)$?**  
    👉 **Propiedad Distributiva respecto de la resta**.
-4. **Si multiplico $109 \times 200$, ¿cuántos ceros tendrá el final del resultado?**  
-   👉 Tiene 2 ceros ($109 \times 2 = 218 \to 21.800$).
-5. **En la operación $10 + 4 \times 5$, ¿qué se hace primero?**  
-   👉 **Primero la multiplicación**: $4 \times 5 = 20$, luego $10 + 20 = 30$. (Hacer $14 \times 5$ es un error grave).
+4. **Si multiplico $206 \times 300$, ¿cuántos ceros tendrá el resultado al final?**  
+   👉 $206 \times 3 = 618$ más 2 ceros $\to 61.800$.
+5. **En $18 + 6 \times 7$, ¿qué se hace primero?**  
+   👉 **Primero la multiplicación**: $6 \times 7 = 42$, luego $18 + 42 = 60$.

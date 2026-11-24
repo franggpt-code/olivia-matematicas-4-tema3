@@ -1,7 +1,7 @@
 // =============================================================================
 // BANCO PEDAGÓGICO DE DATOS · MATEMÁTICAS 4.º PRIMARIA · TEMA 3
 // Proyecto CLAVES / Construyendo Mundos (Grazalema - Santillana)
-// "La Multiplicación" · Entrenador Personal de Olivia
+// "La Multiplicación" · Entrenador Personal de Olivia (100% Original)
 // =============================================================================
 
 const MATH_DATA = {
@@ -12,632 +12,622 @@ const MATH_DATA = {
     student: "Olivia",
     grade: "4.º Educación Primaria",
     schoolProject: "Proyecto CLAVES · Construyendo Mundos (Santillana)",
-    version: "1.0.0"
+    version: "2.0.0"
   },
 
   // ===========================================================================
-  // 5 MISIONES DIDÁCTICAS TEMÁTICAS (5 PREGUNTAS FORMATIVAS CADA UNA = 25 RETOS)
+  // CATÁLOGOS ORIGINALES (SIN REPETIR PRODUCTOS NI NÚMEROS DEL LIBRO)
+  // ===========================================================================
+  catalogs: {
+    papeleria: {
+      title: "Catálogo de la Gran Papelería y Taller Creativo",
+      items: [
+        { icon: "🖍️", name: "Rotuladores", unit: "rotuladores", packLabel: "estuches de 7", qty: 7 },
+        { icon: "📓", name: "Cuadernos", unit: "cuadernos", packLabel: "packs de 4", qty: 4 },
+        { icon: "📎", name: "Clips de colores", unit: "clips", packLabel: "cajas de 100", qty: 100 },
+        { icon: "✏️", name: "Lápices de colores", unit: "lápices", packLabel: "cajas de 18", qty: 18 },
+        { icon: "⭐", name: "Pegatinas brillantes", unit: "pegatinas", packLabel: "sobres de 64", qty: 64 },
+        { icon: "📄", name: "Folios reciclados", unit: "folios", packLabel: "paquetes de 300", qty: 300 }
+      ]
+    },
+    deportes: {
+      title: "Catálogo de la Tienda de Deportes y Campamento",
+      items: [
+        { icon: "🎾", name: "Pelotas de tenis", unit: "pelotas", packLabel: "tubos de 9", qty: 9 },
+        { icon: "🥤", name: "Bidones deportivos", unit: "bidones", packLabel: "packs de 5", qty: 5 },
+        { icon: "🏅", name: "Pulseras de equipo", unit: "pulseras", packLabel: "bolsas de 10", qty: 10 },
+        { icon: "⚽", name: "Conos de entrenamiento", unit: "conos", packLabel: "cajas de 32", qty: 32 },
+        { icon: "🃏", name: "Cromos deportivos", unit: "cromos", packLabel: "cajas de 74", qty: 74 },
+        { icon: "🚩", name: "Banderines de pista", unit: "banderines", packLabel: "cajas de 400", qty: 400 }
+      ]
+    }
+  },
+
+  // ===========================================================================
+  // 5 MISIONES DIDÁCTICAS TEMÁTICAS (25 RETOS: TEST + ENTRADA CON PISTA)
   // ===========================================================================
   missions: [
     {
       id: 1,
-      title: "Misión 1: Multiplicaciones de Campeona y Factores con Ceros",
+      title: "Misión 1: Multiplicaciones, Catálogo y Ceros",
       icon: "📦",
-      badge: "Insignia del Almacén",
-      description: "Domina el cálculo de productos por 1, 2 y 3 cifras, ceros finales y el cálculo de unidades en cajas.",
+      badge: "Insignia de la Papelería",
+      description: "Domina los términos, multiplicaciones por 1, 2 y 3 cifras y los ceros finales e intermedios.",
       questions: [
         {
           id: "m1_1",
-          question: "¿Cuáles son los términos de la multiplicación 125 × 8 = 1.000?",
+          type: "multiple_choice",
+          question: "En la operación 136 × 7 = 952, ¿cómo se llaman los términos?",
           options: [
-            "125 y 8 son los sumandos, y 1.000 es la suma total.",
-            "125 y 8 son los factores, y 1.000 es el producto.",
-            "125 es el dividendo, 8 es el divisor y 1.000 el cociente.",
-            "125 es el minuendo, 8 el sustraendo y 1.000 la diferencia."
+            "136 y 7 son los sumandos, y 952 es el producto.",
+            "136 y 7 son los factores, y 952 es el producto.",
+            "136 es el factor mayor, 7 es el cociente y 952 es el resto.",
+            "136 es el minuendo, 7 es el sustraendo y 952 es la diferencia."
           ],
           correct: 1,
-          explanation: "¡Exacto! Los números que se multiplican se llaman FACTORES y el resultado final se llama PRODUCTO."
+          explanation: "¡Exacto! Los números que multiplicamos entre sí son los FACTORES (136 y 7), y el resultado final es el PRODUCTO (952)."
         },
         {
           id: "m1_2",
-          question: "En el almacén ecológico hay 1.305 sobres con 10 lonchas de queso cada uno. ¿Cuántas lonchas hay en total?",
-          options: [
-            "13.050 lonchas.",
-            "1.315 lonchas.",
-            "130.500 lonchas.",
-            "1.305 lonchas."
-          ],
-          correct: 0,
-          explanation: "¡Brillante! Para multiplicar un número por 10, solo añadimos un cero al final: 1.305 × 10 = 13.050 lonchas."
+          type: "input",
+          question: "En la papelería reciben 248 cajas de clips de colores (cada caja trae 100 clips). ¿Cuántos clips han recibido en total?",
+          placeholder: "Escribe el total de clips...",
+          accepted: ["24800", "24.800"],
+          hint: "Multiplica 248 × 100 añadiendo dos ceros al final de 248.",
+          explanation: "¡Genial! Para multiplicar por 100 añadimos dos ceros al final: 248 × 100 = 24.800 clips."
         },
         {
           id: "m1_3",
-          question: "Olivia prepara un pedido con 109 paquetes de 200 servilletas de bambú. ¿Cuántas servilletas hay en total?",
-          options: [
-            "2.180 servilletas.",
-            "21.800 servilletas.",
-            "20.900 servilletas.",
-            "218.000 servilletas."
-          ],
-          correct: 1,
-          explanation: "¡Excelente! Multiplicamos 109 × 2 = 218 y añadimos los dos ceros del 200: 21.800 servilletas."
+          type: "input",
+          question: "Para preparar los pedidos del colegio, Lucas apila 124 paquetes de folios reciclados (300 folios por paquete). ¿Cuántos folios hay en total?",
+          placeholder: "Escribe el total de folios...",
+          accepted: ["37200", "37.200"],
+          hint: "Multiplica 124 × 3 y añade los dos ceros del 300.",
+          explanation: "¡Brillante! 124 × 3 = 372, y al añadir los dos ceros del 300 obtenemos 37.200 folios."
         },
         {
           id: "m1_4",
-          question: "Lucas y Mateo van a calcular 1.012 × 24. Al multiplicar por las 2 decenas del número 24, ¿dónde deben escribir el primer número?",
+          type: "multiple_choice",
+          question: "Al calcular 235 × 18 en vertical, ¿qué cantidad corresponde al segundo producto parcial (el de la cifra 1 de las decenas) y cuál es el resultado final?",
           options: [
-            "Debajo de las unidades, justo debajo del primer producto.",
-            "Desplazado un lugar hacia la izquierda, debajo de la columna de las decenas.",
-            "A la derecha del todo, añadiendo una coma.",
-            "Arriba del todo junto al 1.012."
+            "235 unidades y resultado final 2.115.",
+            "2.350 unidades (escrito desplazado bajo las decenas) y resultado final 4.230.",
+            "23.500 unidades y resultado final 25.380.",
+            "1.880 unidades y resultado final 2.115."
           ],
           correct: 1,
-          explanation: "¡Regla de oro! Como el 2 vale 20 (2 decenas), se deja libre el hueco de las unidades y se escribe debajo de las decenas: 1.012 × 24 = 24.288."
+          explanation: "¡Regla de oro! 235 × 8 = 1.880; luego 235 × 10 = 2.350 (se coloca dejando libre la columna de las unidades). Suma: 1.880 + 2.350 = 4.230."
         },
         {
           id: "m1_5",
-          question: "En una furgoneta entran 354 cajas con 82 botes de aceitunas cada una. ¿Cuántos botes de aceitunas transporta en total?",
-          options: [
-            "28.320 botes.",
-            "29.028 botes.",
-            "27.842 botes.",
-            "30.150 botes."
-          ],
-          correct: 1,
-          explanation: "¡Genial! 354 × 2 = 708; 354 × 80 = 28.320; 708 + 28.320 = 29.028 botes."
+          type: "input",
+          question: "Reto de 3 cifras con cero intermedio: calcula con papel y lápiz 216 × 204 y escribe el producto final.",
+          placeholder: "Escribe el resultado...",
+          accepted: ["44064", "44.064"],
+          hint: "216 × 4 = 864; como las decenas son 0, salta dos lugares y calcula 216 × 200 = 43.200; suma ambos.",
+          explanation: "¡Campeona! 216 × 4 = 864; al haber un 0 en las decenas saltamos a las centenas: 216 × 200 = 43.200. Total: 864 + 43.200 = 44.064."
         }
       ]
     },
 
     {
       id: 2,
-      title: "Misión 2: Propiedad Conmutativa y el Orden Secreto",
+      title: "Misión 2: Propiedades Conmutativa y Asociativa",
       icon: "🔄",
-      badge: "Insignia Conmutativa",
-      description: "Descubre por qué cambiar el orden de los factores nunca cambia el resultado de tu compra.",
+      badge: "Insignia del Equilibrio",
+      description: "Comprueba que cambiar el orden o la agrupación de los factores simplifica cualquier cálculo.",
       questions: [
         {
           id: "m2_1",
-          question: "¿Qué dice la Propiedad Conmutativa de la multiplicación?",
+          type: "multiple_choice",
+          question: "Olivia coloca 14 estuches con 7 rotuladores cada uno, y Mateo coloca 7 estuches con 14 rotuladores. ¿Qué propiedad demuestra que ambos tienen 98 rotuladores?",
           options: [
-            "Que al multiplicar por cero el resultado siempre es cero.",
-            "Que el orden de los factores no altera el producto (a × b = b × a).",
-            "Que siempre hay que sumar antes de multiplicar.",
-            "Que solo se pueden multiplicar números pares."
+            "Propiedad asociativa.",
+            "Propiedad conmutativa: el orden de los factores no altera el producto (14 × 7 = 7 × 14).",
+            "Propiedad distributiva respecto de la suma.",
+            "Prueba de la multiplicación."
           ],
           correct: 1,
-          explanation: "¡Así es! Da igual hacer 16 × 6 que 6 × 16, el resultado siempre es 96."
+          explanation: "¡Exacto! En la propiedad conmutativa intercambiamos el orden de dos factores y el producto sigue siendo 98."
         },
         {
           id: "m2_2",
-          question: "Elena organiza botes de mermelada: tiene 25 cajas con 200 botes cada una. Dice que da lo mismo que tener 200 cajas con 25 botes. ¿Es correcto?",
-          options: [
-            "No, porque 200 cajas ocupan mucho más espacio.",
-            "Sí, porque por la propiedad conmutativa 25 × 200 = 200 × 25 = 5.000 botes.",
-            "No, una de las dos formas da 50.000 botes.",
-            "Solo si los botes son de fresa."
-          ],
-          correct: 1,
-          explanation: "¡Exacto! 25 × 200 = 5.000 y 200 × 25 = 5.000. El orden no cambia la cantidad total de botes."
+          type: "input",
+          question: "Aplica la propiedad conmutativa para calcular mentalmente más fácil: 35 × 300 = 300 × 35 = ____",
+          placeholder: "Escribe el producto...",
+          accepted: ["10500", "10.500"],
+          hint: "Multiplica 35 × 3 = 105 y añade los dos ceros del 300.",
+          explanation: "¡Perfecto! 35 × 300 = 300 × 35 = 10.500."
         },
         {
           id: "m2_3",
-          question: "¿Cuál de estas igualdades representa la PROPIEDAD CONMUTATIVA?",
+          type: "multiple_choice",
+          question: "¿Cómo conviene asociar los factores en 4 × 13 × 25 para resolverla de cabeza al instante?",
           options: [
-            "4 × (5 + 2) = (4 × 5) + (4 × 2)",
-            "(3 × 4) × 5 = 3 × (4 × 5)",
-            "18 × 7 = 7 × 18",
-            "12 × 1 = 12"
+            "(4 × 13) × 25 = 52 × 25.",
+            "(4 × 25) × 13 = 100 × 13 = 1.300.",
+            "(13 + 25) × 4 = 38 × 4.",
+            "4 × (13 + 25) = 152."
           ],
-          correct: 2,
-          explanation: "¡Bien visto! En 18 × 7 = 7 × 18 solo se ha cambiado el orden de los dos factores."
+          correct: 1,
+          explanation: "¡Truco maestro! Como 4 × 25 = 100, agrupar esos dos factores primero te permite hacer 100 × 13 = 1.300 en un segundo."
         },
         {
           id: "m2_4",
-          question: "Completa el término que falta para que se cumpla la igualdad: 45 × 12 = ____ × 45",
-          options: [
-            "45",
-            "12",
-            "1",
-            "540"
-          ],
-          correct: 1,
-          explanation: "¡Súper! 45 × 12 = 12 × 45. Falta el número 12 para cumplir la propiedad conmutativa."
+          type: "input",
+          question: "En una librería hay 5 estanterías con 4 cajas en cada una, y cada caja contiene 18 lápices de colores. ¿Cuántos lápices hay en total? Calcula (5 × 4) × 18.",
+          placeholder: "Total de lápices...",
+          accepted: ["360", "360 lapices", "360 lápices"],
+          hint: "Primero calcula el paréntesis 5 × 4 = 20, y después multiplica 20 × 18.",
+          explanation: "¡Brillante! (5 × 4) × 18 = 20 × 18 = 360 lápices (y también 5 × (4 × 18) = 5 × 72 = 360)."
         },
         {
           id: "m2_5",
-          question: "¿Por qué es tan útil la propiedad conmutativa para calcular de cabeza?",
+          type: "multiple_choice",
+          question: "¿Cuál de estas igualdades representa correctamente la PROPIEDAD ASOCIATIVA?",
           options: [
-            "Porque si nos cuesta calcular 4 × 75, podemos calcular 75 × 4 (75 + 75 = 150, y 150 + 150 = 300) y obtener el mismo resultado.",
-            "Porque permite borrar los números que no nos gusten.",
-            "Porque convierte las multiplicaciones en restas.",
-            "Porque solo funciona con la tabla del 2."
+            "18 × (3 × 4) = (18 × 3) × 4",
+            "18 × 4 = 4 × 18",
+            "18 × (3 + 4) = (18 × 3) + (18 × 4)",
+            "18 × 1 = 18"
           ],
           correct: 0,
-          explanation: "¡Cálculo mental pro! Elegir el orden más fácil nos ahorra tiempo y evita equivocarnos."
+          explanation: "¡Muy bien! En la propiedad asociativa los tres factores mantienen su orden y solo cambian los paréntesis que los agrupan (ambos lados dan 216)."
         }
       ]
     },
 
     {
       id: 3,
-      title: "Misión 3: Propiedad Asociativa y los Tres Factores",
-      icon: "🔗",
-      badge: "Insignia Asociativa",
-      description: "Aprende a agrupar tres factores con paréntesis de la forma más fácil y rápida.",
+      title: "Misión 3: La Gran Propiedad Distributiva",
+      icon: "✨",
+      badge: "Insignia Distributiva",
+      description: "Aplica la distributiva respecto a la suma y la resta por los dos caminos y domina el cálculo mental.",
       questions: [
         {
           id: "m3_1",
-          question: "¿Qué nos enseña la Propiedad Asociativa de la multiplicación?",
+          type: "multiple_choice",
+          question: "En un pack especial hay 7 rotuladores gruesos y 4 finos. Si compramos 3 packs, ¿cómo se expresa usando la propiedad distributiva?",
           options: [
-            "Que para multiplicar tres números, podemos agrupar dos de ellos primero y el resultado multiplicarlo por el tercero: (a × b) × c = a × (b × c).",
-            "Que siempre hay que empezar multiplicando por la izquierda obligatoriamente.",
-            "Que si sumamos los factores el resultado no cambia.",
-            "Que no se pueden usar paréntesis en matemáticas."
+            "3 × (7 + 4) = (3 × 7) + (3 × 4) = 21 + 12 = 33 rotuladores.",
+            "3 × (7 + 4) = (3 × 7) + 4 = 25 rotuladores.",
+            "3 + 7 + 4 = 14 rotuladores.",
+            "3 × 7 × 4 = 84 rotuladores."
           ],
           correct: 0,
-          explanation: "¡Correcto! Da igual qué dos factores multipliquemos primero dentro del paréntesis, el producto final no varía."
+          explanation: "¡Exacto! El 3 se distribuye multiplicando tanto al 7 como al 4: 21 + 12 = 33 (igual que 3 × 11 = 33)."
         },
         {
           id: "m3_2",
-          question: "Calcula (3 × 10) × 2 y comprueba si da lo mismo que 3 × (10 × 2):",
-          options: [
-            "El primero da 30 y el segundo da 60.",
-            "Ambos dan exactamente 60: (30 × 2 = 60 y 3 × 20 = 60).",
-            "Ambos dan 120.",
-            "El primero da 60 y el segundo da 20."
-          ],
-          correct: 1,
-          explanation: "¡Perfecto! (3 × 10) × 2 = 30 × 2 = 60; y 3 × (10 × 2) = 3 × 20 = 60."
+          type: "input",
+          question: "Aplica la propiedad distributiva respecto de la resta en (64 - 19) × 4 = (64 × 4) - (19 × 4). ¿Cuál es el resultado final?",
+          placeholder: "Escribe el resultado...",
+          accepted: ["180"],
+          hint: "64 × 4 = 256 y 19 × 4 = 76; también puedes hacer primero 64 - 19 = 45 y multiplicar 45 × 4.",
+          explanation: "¡Impecable! Por los dos caminos da 180: (64 × 4) - (19 × 4) = 256 - 76 = 180, y 45 × 4 = 180."
         },
         {
           id: "m3_3",
-          question: "En una estantería hay 6 filas con 3 paquetes de papel cada una, y cada paquete tiene 24 rollos. ¿Qué operación calcula el total?",
-          options: [
-            "(6 × 3) × 24 o también 6 × (3 × 24).",
-            "6 + 3 + 24.",
-            "(6 × 3) + 24.",
-            "6 × 3 - 24."
-          ],
-          correct: 0,
-          explanation: "¡Muy bien! (6 × 3) × 24 = 18 × 24 = 432 rollos; y 6 × (3 × 24) = 6 × 72 = 432 rollos."
+          type: "input",
+          question: "Calcula mentalmente 6 × 34 descomponiendo el 34 en (30 + 4) con la propiedad distributiva:",
+          placeholder: "Resultado de 6 × 34...",
+          accepted: ["204"],
+          hint: "Calcula (6 × 30) = 180 y (6 × 4) = 24; luego suma los dos.",
+          explanation: "¡Cálculo mental pro! 6 × (30 + 4) = (6 × 30) + (6 × 4) = 180 + 24 = 204."
         },
         {
           id: "m3_4",
-          question: "Olivia tiene que multiplicar 5 × 19 × 2. ¿Cómo le conviene asociar los factores para calcular de cabeza al instante?",
+          type: "multiple_choice",
+          question: "Valentina tenía 5 cajas de 18 lápices, pero de cada caja sacó 6 lápices para clase. ¿Qué pareja de operaciones calcula los lápices que quedan en las cajas?",
           options: [
-            "(5 × 19) × 2 = 95 × 2 = 190.",
-            "(5 × 2) × 19 = 10 × 19 = 190.",
-            "No se puede calcular de cabeza.",
-            "(19 × 2) + 5."
+            "5 × (18 - 6)  y  (5 × 18) - (5 × 6) = 60 lápices.",
+            "5 × 18 - 6  y  5 × 12 = 84 lápices.",
+            "(18 - 6) + 5  y  18 - 30.",
+            "5 × (18 + 6) = 120 lápices."
           ],
-          correct: 1,
-          explanation: "¡Truco maestro! Multiplicar primero 5 × 2 = 10 es facilísimo, porque luego 10 × 19 son 190 directos."
+          correct: 0,
+          explanation: "¡De diez! En cada una de las 5 cajas quedan 12 lápices (5 × 12 = 60), y también es (5 × 18) - (5 × 6) = 90 - 30 = 60."
         },
         {
           id: "m3_5",
-          question: "¿Cuál de las siguientes igualdades es un ejemplo de la PROPIEDAD ASOCIATIVA?",
-          options: [
-            "24 × (3 × 6) = (24 × 3) × 6",
-            "24 × 3 = 3 × 24",
-            "24 × (3 + 6) = (24 × 3) + (24 × 6)",
-            "24 × 0 = 0"
-          ],
-          correct: 0,
-          explanation: "¡Genial! Los tres números siguen en el mismo orden, solo han cambiado los paréntesis que los agrupan."
+          type: "input",
+          question: "Usa el mismo truco distributivo para calcular de cabeza 8 × 47:",
+          placeholder: "Resultado de 8 × 47...",
+          accepted: ["376"],
+          hint: "Descompón 47 en 40 + 7: (8 × 40) + (8 × 7) = 320 + 56.",
+          explanation: "¡Súper rápido! 8 × (40 + 7) = 320 + 56 = 376."
         }
       ]
     },
 
     {
       id: 4,
-      title: "Misión 4: La Gran Propiedad Distributiva",
-      icon: "✨",
-      badge: "Insignia Distributiva",
-      description: "Reparte la multiplicación entre la suma y la resta para resolver problemas y calcular como una calculadora humana.",
+      title: "Misión 4: Radar de Estimaciones y Tablas",
+      icon: "🎯",
+      badge: "Insignia de la Estimación",
+      description: "Estima productos en 1 y 2 pasos, completa tablas de almacén y calcula repartos aproximados.",
       questions: [
         {
           id: "m4_1",
-          question: "¿En qué consiste la Propiedad Distributiva respecto de la suma?",
+          type: "multiple_choice",
+          question: "En la papelería se venden 88 estuches de rotuladores (de 7 unidades) cada día. ¿Cuántos rotuladores se venderán aproximadamente en 6 días?",
           options: [
-            "Multiplicar un número por una suma es igual a multiplicar ese número por cada sumando y después sumar los resultados: a × (b + c) = (a × b) + (a × c).",
-            "Consiste en restar todos los números.",
-            "Consiste en sumar el primer número y olvidar el paréntesis.",
-            "Es cambiar el orden de los números."
+            "Unos 540 rotuladores (solo multiplicando 90 × 6).",
+            "Unos 3.780 rotuladores: primero estimamos los estuches (90 × 6 = 540) y luego multiplicamos por 7 rotuladores (540 × 7 = 3.780).",
+            "Unos 480 rotuladores.",
+            "Unos 5.600 rotuladores."
           ],
-          correct: 0,
-          explanation: "¡Exacto! El factor de fuera 'se reparte' multiplicando a cada término del interior del paréntesis."
+          correct: 1,
+          explanation: "¡Atenta a los 2 pasos! Primero redondeamos 88 a 90 y estimamos los estuches en 6 días: 90 × 6 = 540 estuches. Después multiplicamos por 7 rotuladores: 540 × 7 = 3.780 rotuladores."
         },
         {
           id: "m4_2",
-          question: "Calcula 2 × (8 + 5) aplicando la propiedad distributiva:",
-          options: [
-            "2 × 8 + 5 = 16 + 5 = 21.",
-            "(2 × 8) + (2 × 5) = 16 + 10 = 26.",
-            "2 + 8 + 5 = 15.",
-            "2 × 40 = 80."
-          ],
-          correct: 1,
-          explanation: "¡Impecable! 2 × (8 + 5) = 2 × 13 = 26; o distribuyendo: (2 × 8) + (2 × 5) = 16 + 10 = 26."
+          type: "input",
+          question: "Para estimar rápidamente 312 × 4 redondeando el primer factor al mayor de sus órdenes (centenas), ¿qué producto estimado obtienes?",
+          placeholder: "Producto estimado...",
+          accepted: ["1200", "1.200"],
+          hint: "312 está más cerca de 300 que de 400. Multiplica 300 × 4.",
+          explanation: "¡Correcto! Como la decena de 312 es 1 (menor que 5), redondeamos a 300: 300 × 4 = 1.200."
         },
         {
           id: "m4_3",
-          question: "¿Cómo se aplica la propiedad distributiva respecto de la RESTA en (82 - 15) × 3?",
-          options: [
-            "(82 × 3) - (15 × 3) = 246 - 45 = 201.",
-            "(82 - 15) + 3 = 67 + 3 = 70.",
-            "82 - (15 × 3) = 82 - 45 = 37.",
-            "82 × 15 × 3 = 3.690."
-          ],
-          correct: 0,
-          explanation: "¡De diez! El 3 multiplica tanto al 82 como al 15: 246 - 45 = 201 (igual que 67 × 3 = 201)."
+          type: "input",
+          question: "Estimación inversa: queremos tener unos 1.600 cuadernos en la tienda y vienen en packs de 4. ¿Cuántos packs aproximadamente debemos pedir?",
+          placeholder: "Número de packs...",
+          accepted: ["400", "400 packs", "400 paquetes"],
+          hint: "Busca qué número multiplicado por 4 da 1.600 (pista: 4 × 4 = 16).",
+          explanation: "¡Exacto! 400 × 4 = 1.600 cuadernos, así que necesitamos unos 400 packs."
         },
         {
           id: "m4_4",
-          question: "Olivia quiere calcular 7 × 43 de cabeza. ¿Cómo puede usar la propiedad distributiva?",
+          type: "multiple_choice",
+          question: "Cada día de campamento compran 7 sobres de pegatinas (64 pegatinas por sobre). ¿Cuántas pegatinas comprarán aproximadamente en 8 días?",
           options: [
-            "7 × (40 + 3) = (7 × 40) + (7 × 3) = 280 + 21 = 301.",
-            "7 × 40 = 280 y se olvida del 3.",
-            "7 + 40 + 3 = 50.",
-            "7 × 4 × 3 = 84."
+            "Unas 3.600 pegatinas (8 × 7 = 56 sobres ≈ 60 sobres; 64 ≈ 60 pegatinas → 60 × 60 = 3.600).",
+            "Unas 640 pegatinas.",
+            "Unas 560 pegatinas.",
+            "Unas 360 pegatinas."
           ],
           correct: 0,
-          explanation: "¡Magia matemática! Descomponer 43 en 40 + 3 nos permite resolverlo de cabeza en dos segundos."
+          explanation: "¡Razonamiento de 10! En 8 días son 8 × 7 = 56 sobres (redondeado a 60), y cada sobre tiene 64 pegatinas (redondeado a 60): 60 × 60 = 3.600 pegatinas."
         },
         {
           id: "m4_5",
-          question: "Lucas tiene 3 cajas con 80 manzanas cada una. Si de cada caja se han comido 15 manzanas, ¿qué operación representa las que quedan?",
+          type: "multiple_choice",
+          question: "Llegan 294 packs de cuadernos de cuadros, 112 de rayas y 86 lisos (cada pack tiene 4 cuadernos). Redondeando cada dato a las centenas, ¿cuántos cuadernos estimas que han llegado?",
           options: [
-            "3 × 80 - 15.",
-            "3 × (80 - 15) = (3 × 80) - (3 × 15) = 240 - 45 = 195 manzanas.",
-            "3 + 80 - 15 = 68.",
-            "80 - (15 × 3) = 35."
+            "Unos 2.000 cuadernos: (300 + 100 + 100) × 4 = 500 × 4 = 2.000.",
+            "Unos 1.200 cuadernos.",
+            "Unos 500 cuadernos.",
+            "Unos 4.000 cuadernos."
           ],
-          correct: 1,
-          explanation: "¡Perfecto! En cada una de las 3 cajas quedan (80 - 15) manzanas: 3 × 65 = 195 manzanas."
+          correct: 0,
+          explanation: "¡Perfecto! 294 → 300; 112 → 100; 86 → 100. En total unos 500 packs × 4 cuadernos = 2.000 cuadernos estimados."
         }
       ]
     },
 
     {
       id: 5,
-      title: "Misión 5: Radar de Estimaciones y Operaciones Combinadas",
-      icon: "🎯",
-      badge: "Insignia Estratégica",
-      description: "Aprende a redondear antes de multiplicar para anticipar resultados y domina la jerarquía de operaciones.",
+      title: "Misión 5: Operaciones Combinadas y Doble/Triple",
+      icon: "👑",
+      badge: "Insignia de Estrategia",
+      description: "Domina la jerarquía de paréntesis, sumas, restas y problemas de varios pasos con doble y triple.",
       questions: [
         {
           id: "m5_1",
-          question: "En una tienda se venden cada día 96 paquetes de yogures. Para estimar cuántos paquetes se venderán en 1 semana (7 días), ¿cómo redondeamos 96?",
-          options: [
-            "A la decena: 90 × 7 = 630.",
-            "A la centena más cercana: 96 se redondea a 100, luego 100 × 7 = 700 paquetes aproximadamente.",
-            "Al millar: 1.000 × 7 = 7.000.",
-            "No se puede redondear porque termina en 6."
-          ],
-          correct: 1,
-          explanation: "¡Exacto! Como 96 está casi en 100, redondeamos a 100: 100 × 7 = 700 paquetes estimados."
+          type: "input",
+          question: "¡Cuidado con la trampa de jerarquía! Calcula el resultado correcto de: 18 + 6 × 7",
+          placeholder: "Escribe el resultado...",
+          accepted: ["60"],
+          hint: "No sumes 18 + 6 primero. Empieza siempre por la multiplicación 6 × 7.",
+          explanation: "¡No caíste en la trampa! Primero multiplicamos 6 × 7 = 42, y después sumamos 18 + 42 = 60."
         },
         {
           id: "m5_2",
-          question: "Si queremos tener unos 1.200 briks de leche y los paquetes vienen de 6 en 6, ¿cuántos paquetes aproximadamente debemos encargar?",
+          type: "multiple_choice",
+          question: "A la papelería llega un pedido con 84 packs de cuadernos (de 4 cuadernos cada pack). Si en el estante ya quedaban 23 packs, ¿qué operación combinada da el total de cuadernos?",
           options: [
-            "Unos 20 paquetes.",
-            "Unos 200 paquetes, porque 200 × 6 = 1.200.",
-            "Unos 12 paquetes.",
-            "Unos 2.000 paquetes."
+            "(84 + 23) × 4 = 107 × 4 = 428 cuadernos.",
+            "84 + 23 × 4 = 84 + 92 = 176 cuadernos.",
+            "84 × 4 + 23 = 336 + 23 = 359 cuadernos.",
+            "(84 - 23) × 4 = 61 × 4 = 244 cuadernos."
           ],
-          correct: 1,
-          explanation: "¡Brillante estimación inversa! 1.200 dividido entre 6 da 200 paquetes exactos."
+          correct: 0,
+          explanation: "¡Muy bien! Primero sumamos todos los packs que hay ahora (84 + 23 = 107) y multiplicamos por los 4 cuadernos de cada pack = 428 cuadernos."
         },
         {
           id: "m5_3",
-          question: "¿Cuál es el orden SAGRADO de las operaciones combinadas?",
-          options: [
-            "1.º Paréntesis, 2.º Multiplicaciones, 3.º Sumas y restas de izquierda a derecha.",
-            "1.º Sumas, 2.º Paréntesis, 3.º Multiplicaciones.",
-            "Siempre de derecha a izquierda sin importar los signos.",
-            "Primero las restas, luego las multiplicaciones y al final los paréntesis."
-          ],
-          correct: 0,
-          explanation: "¡La regla de oro! Primero resolvemos lo que esté dentro de los paréntesis, después las multiplicaciones y por último sumas y restas."
+          type: "input",
+          question: "Elena tenía 3 cajas de lápices de colores (18 lápices cada una). Ha regalado 12 lápices a su primo y ha gastado 9 en clase de Plástica. ¿Cuántos lápices le quedan?",
+          placeholder: "Lápices que quedan...",
+          accepted: ["33", "33 lapices", "33 lápices"],
+          hint: "Calcula primero cuántos lápices tenía en total (3 × 18 = 54) y luego réstale los 12 y los 9.",
+          explanation: "¡Perfecto! 3 × 18 - (12 + 9) = 54 - 21 = 33 lápices quedan."
         },
         {
           id: "m5_4",
-          question: "Al almacén ha llegado un camión con 96 paquetes de leche (de 6 briks cada uno). Si ya había 17 paquetes, ¿cuántos briks de leche hay en total?",
+          type: "multiple_choice",
+          question: "En un tarro de clase hay 26 fichas azules, el DOBLE de fichas rojas que de azules, y 45 fichas amarillas. ¿Cuántas fichas hay en total en el tarro?",
           options: [
-            "(96 + 17) × 6 = 113 × 6 = 678 briks.",
-            "96 + 17 × 6 = 96 + 102 = 198 briks.",
-            "96 × 6 + 17 = 576 + 17 = 593 briks.",
-            "(96 - 17) × 6 = 474 briks."
+            "97 fichas (26 + 26 + 45).",
+            "123 fichas: 26 + (26 × 2) + 45 = 26 + 52 + 45 = 123.",
+            "116 fichas (26 + 52 + 38).",
+            "149 fichas."
           ],
-          correct: 0,
-          explanation: "¡Impecable! Sumamos todos los paquetes que hay ahora (96 + 17 = 113) y multiplicamos por 6 briks de cada paquete = 678 briks."
+          correct: 1,
+          explanation: "¡Súper! El doble de 26 es 26 × 2 = 52 fichas rojas. Sumando todo: 26 + 52 + 45 = 123 fichas en total."
         },
         {
           id: "m5_5",
-          question: "Valentina tenía en casa 2 paquetes de 24 rollos de papel ecológico. Ha llevado 15 a la autocaravana y gastado 14 en el taller. ¿Cuántos rollos quedan?",
-          options: [
-            "(2 × 24) - (15 + 14) = 48 - 29 = 19 rollos.",
-            "2 × 24 + 15 + 14 = 77 rollos.",
-            "24 - 15 - 14 = -5 rollos.",
-            "(2 + 24) - 29 = 26 - 29."
-          ],
-          correct: 0,
-          explanation: "¡Súper resuelto! Tenía 48 rollos en total y ha gastado 15 + 14 = 29 rollos. 48 - 29 = 19 rollos restantes."
+          type: "input",
+          question: "Resuelve esta operación combinada con paréntesis: 4 × (15 + 9) - 16",
+          placeholder: "Resultado final...",
+          accepted: ["80"],
+          hint: "1.º Paréntesis (15 + 9 = 24). 2.º Multiplicación (4 × 24 = 96). 3.º Resta 16.",
+          explanation: "¡Excelente jerarquía! 15 + 9 = 24; 4 × 24 = 96; 96 - 16 = 80."
         }
       ]
     }
   ],
 
   // ===========================================================================
-  // SIMULADOR DE EXAMEN (PRUEBA A COMPETENCIAL Y PRUEBA B CURRICULAR FORMAL)
-  // Con fill_blanks, text_input, classify_inputs y multiple_choice
+  // SIMULADOR DE EXAMEN (PRUEBA A Y PRUEBA B — 100% ORIGINALES Y SIN PISTAS CHIVATAS)
   // ===========================================================================
   exams: {
-    // PRUEBA A: El Gran Pedido del Ecomercado (Contextualizado con nuevos personajes)
+    // PRUEBA A: La Gran Papelería y Taller Creativo (Competencial)
     testA: {
-      title: "Prueba A: El Gran Pedido del Ecomercado",
-      description: "Acompaña a Olivia, Lucas y Mateo a gestionar la recepción y distribución de suministros ecológicos en el almacén central.",
-      context: "En el Ecomercado llegan palés con cajas de fruta, lácteos de avena, briks de zumo y conservas. El equipo debe revisar albaranes, aplicar propiedades para organizar estanterías y resolver pedidos con operaciones combinadas.",
+      title: "Prueba A: La Gran Papelería y Taller Creativo",
+      catalog: "papeleria",
+      description: "Usa el catálogo de la papelería para calcular pedidos, completar tablas de almacén, estimar repartos y resolver operaciones combinadas.",
+      context: "Olivia, Lucas y Mateo gestionan los pedidos escolares de la papelería. Tienen que revisar albaranes mirando el catálogo, estimar compras semanales y controlar el stock.",
       questions: [
         {
           id: "ta_1",
-          type: "fill_blanks",
-          question: "Lucas recibe el primer albarán con productos especiales. Rellena los huecos con el producto total de cada línea:",
-          template: "Llegan 125 cajas con 8 tarros de miel artesana, lo que da un total de {0} tarros. Además, llegan 1.305 sobres con 10 lonchas de queso vegetal, que son {1} lonchas en total. Por último, 109 cajas de 200 servilletas de bambú suman {2} servilletas.",
-          blanks: [
-            { placeholder: "tarros...", accepted: ["1.000", "1000"] },
-            { placeholder: "lonchas...", accepted: ["13.050", "13050"] },
-            { placeholder: "servilletas...", accepted: ["21.800", "21800"] }
+          type: "text_input",
+          question: "Observa el catálogo de la papelería arriba. Realiza las siguientes multiplicaciones e indica qué artículo se calcula en cada caso:",
+          inputs: [
+            { label: "Resultado de 145 × 7", placeholder: "Escribe el número...", accepted: ["1015", "1.015"] },
+            { label: "¿Qué artículo se calcula en 145 × 7?", placeholder: "Ej. folios, clips...", accepted: ["rotuladores", "rotulador", "estuches de rotuladores"] },
+            { label: "Resultado de 426 × 100", placeholder: "Escribe el número...", accepted: ["42600", "42.600"] },
+            { label: "¿Qué artículo se calcula en 426 × 100?", placeholder: "Nombre del artículo...", accepted: ["clips", "clip", "clips de colores"] },
+            { label: "Resultado de 134 × 300", placeholder: "Escribe el número...", accepted: ["40200", "40.200"] },
+            { label: "¿Qué artículo se calcula en 134 × 300?", placeholder: "Nombre del artículo...", accepted: ["folios", "folio", "folios reciclados"] }
           ],
-          wordBank: ["1.000", "13.050", "21.800", "1.250", "13.500", "2.180"],
-          explanation: "125 × 8 = 1.000; 1.305 × 10 = 13.050; 109 × 200 = 21.800 (109 × 2 = 218 más dos ceros)."
+          explanation: "145 × 7 = 1.015 rotuladores (vienen en estuches de 7). 426 × 100 = 42.600 clips (cajas de 100). 134 × 300 = 40.200 folios reciclados (paquetes de 300)."
         },
         {
           id: "ta_2",
           type: "text_input",
-          question: "Mateo tiene que calcular una multiplicación de dos cifras para el albarán de conservas: ha recibido 354 cajas con 82 botes de aceitunas cada una. Realiza la multiplicación y escribe los resultados:",
+          question: "Para el almacén llegan 268 cajas de lápices de colores (18 lápices en cada caja). Calcula 268 × 18 en papel y escribe cada paso:",
           inputs: [
-            { label: "Producto del primer paso (354 × 2 unidades)", placeholder: "Escribe el número...", accepted: ["708"] },
-            { label: "Producto del segundo paso (354 × 8 decenas)", placeholder: "Escribe el número (2.832 o 28.320)...", accepted: ["2832", "2.832", "28.320", "28320"] },
-            { label: "Resultado final de botes (354 × 82)", placeholder: "Escribe el producto final...", accepted: ["29.028", "29028"] }
+            { label: "Primer producto parcial (268 × 8 unidades)", placeholder: "Escribe el número...", accepted: ["2144", "2.144"] },
+            { label: "Segundo producto parcial (268 × 1 decena)", placeholder: "268 o 2.680...", accepted: ["268", "2680", "2.680"] },
+            { label: "Producto final (268 × 18)", placeholder: "Total de lápices...", accepted: ["4824", "4.824"] }
           ],
-          wordBank: ["708", "2.832", "28.320", "29.028", "27.500"],
-          explanation: "354 × 2 = 708; 354 × 80 = 28.320; Suma total: 708 + 28.320 = 29.028 botes de aceitunas."
+          explanation: "268 × 8 = 2.144; 268 × 10 = 2.680 (desplazado a las decenas); suma total: 2.144 + 2.680 = 4.824 lápices de colores."
         },
         {
           id: "ta_3",
-          type: "fill_blanks",
-          question: "En el expositor de frutas, Olivia coloca 16 bandejas con 6 manzanas en cada una, mientras que Lucas coloca 6 bandejas con 16 manzanas. Completa la explicación matemática:",
-          template: "Ambos han colocado el mismo número total de manzanas ({0} manzanas), porque se cumple la propiedad {1}, donde el orden de los factores no cambia el producto.",
-          blanks: [
-            { placeholder: "total manzanas...", accepted: ["96"] },
-            { placeholder: "nombre propiedad...", accepted: ["conmutativa", "conmutativa de la multiplicación"] }
+          type: "table_estimate",
+          question: "Completa la tabla con el número exacto de cuadernos (packs de 4) que han llegado hoy y estima el total redondeando los packs de cada tipo a las centenas:",
+          unitSize: 4,
+          unitLabel: "N.º de cuadernos (× 4)",
+          packsLabel: "N.º de packs",
+          columns: [
+            { label: "Cuadros", packs: 312, exactAccepted: ["1248", "1.248"] },
+            { label: "Rayas", packs: 189, exactAccepted: ["756"] },
+            { label: "Lisos", packs: 104, exactAccepted: ["416"] }
           ],
-          wordBank: ["96", "conmutativa", "asociativa", "distributiva", "86", "106"],
-          explanation: "16 × 6 = 96 y 6 × 16 = 96. Es la propiedad conmutativa."
+          totalExactAccepted: ["2420", "2.420"],
+          totalEstimatedAccepted: ["2400", "2.400"],
+          explanation: "Exacto: 312 × 4 = 1.248; 189 × 4 = 756; 104 × 4 = 416; suma total = 2.420 cuadernos. Estimación a centenas: 300 + 200 + 100 = 600 packs → 600 × 4 = 2.400 cuadernos estimados."
         },
         {
           id: "ta_4",
           type: "text_input",
-          question: "Para organizar 3 palés que contienen 10 cajas cada uno con 2 garrafas de aceite, calculan: (3 × 10) × 2. Escribe el resultado y la propiedad aplicada:",
+          question: "Piensa y resuelve estimando en DOS pasos: si en la papelería se venden 78 estuches de rotuladores cada día lectivo, ¿cuántos rotuladores se venderán aproximadamente en una semana escolar (5 días)?",
           inputs: [
-            { label: "Resultado del cálculo: (3 × 10) × 2", placeholder: "Escribe el número...", accepted: ["60"] },
-            { label: "Nombre de la propiedad aplicada al agrupar con paréntesis", placeholder: "Escribe el nombre...", accepted: ["asociativa", "propiedad asociativa"] }
+            { label: "1.º Redondeo de 78 estuches a las decenas", placeholder: "Ej. 70 u 80...", accepted: ["80"] },
+            { label: "2.º Estuches estimados en 5 días", placeholder: "Escribe el número...", accepted: ["400"] },
+            { label: "3.º Rotuladores estimados en total (× 7 por estuche)", placeholder: "Escribe el total...", accepted: ["2800", "2.800"] }
           ],
-          wordBank: ["60", "asociativa", "conmutativa", "distributiva", "30"],
-          explanation: "(3 × 10) × 2 = 30 × 2 = 60 garrafas. Al agrupar tres factores con paréntesis se aplica la propiedad asociativa."
+          explanation: "78 se redondea a 80 estuches al día. En 5 días son 80 × 5 = 400 estuches. Como cada estuche tiene 7 rotuladores: 400 × 7 = 2.800 rotuladores estimados."
         },
         {
           id: "ta_5",
           type: "fill_blanks",
-          question: "Llegan 2 lotes de merienda saludable. Cada lote incluye 8 manzanas fuji y 5 peras de agua. Aplica la propiedad distributiva completando la igualdad:",
-          template: "La operación 2 × (8 + 5) es igual a (2 × {0}) + (2 × {1}) = {2} + 10 = {3} piezas de fruta en total.",
+          question: "En el taller hay 5 baldas y en cada balda caben 4 cajas de lápices de colores (18 lápices por caja). Completa las dos formas de agrupar y escribe qué propiedad aplicas:",
+          template: "Forma 1: (5 × 4) × 18 = {0} × 18 = {1}. Forma 2: 5 × (4 × 18) = 5 × {2} = {3}. Propiedad aplicada: {4}.",
           blanks: [
-            { placeholder: "primer término...", accepted: ["8"] },
-            { placeholder: "segundo término...", accepted: ["5"] },
-            { placeholder: "resultado 2x8...", accepted: ["16"] },
-            { placeholder: "total fruta...", accepted: ["26"] }
+            { placeholder: "5 × 4...", accepted: ["20"] },
+            { placeholder: "total 1...", accepted: ["360"] },
+            { placeholder: "4 × 18...", accepted: ["72"] },
+            { placeholder: "total 2...", accepted: ["360"] },
+            { placeholder: "nombre propiedad...", accepted: ["asociativa", "propiedad asociativa"] }
           ],
-          wordBank: ["8", "5", "16", "26", "13", "10"],
-          explanation: "2 × (8 + 5) = (2 × 8) + (2 × 5) = 16 + 10 = 26 piezas de fruta."
+          wordBank: ["asociativa", "conmutativa", "distributiva"],
+          explanation: "(5 × 4) × 18 = 20 × 18 = 360, y 5 × (4 × 18) = 5 × 72 = 360. Al cambiar la agrupación con paréntesis aplicamos la propiedad asociativa."
         },
         {
           id: "ta_6",
           type: "text_input",
-          question: "El encargado pide calcular cuántas aceitunas quedan en 3 botes de 82 unidades si de cada uno se han retirado 15 aceitunas para degustación. Resuelve (82 - 15) × 3 aplicando la propiedad distributiva:",
+          question: "En 4 sobres de pegatinas (64 pegatinas cada sobre) se han usado 19 de cada sobre. Resuelve (64 - 19) × 4 por los DOS caminos (normal y propiedad distributiva) para comprobar que dan lo mismo:",
           inputs: [
-            { label: "Resultado de (82 × 3)", placeholder: "Escribe el número...", accepted: ["246"] },
-            { label: "Resultado de (15 × 3)", placeholder: "Escribe el número...", accepted: ["45"] },
-            { label: "Diferencia final: 246 - 45", placeholder: "Escribe el resultado final...", accepted: ["201"] }
+            { label: "Camino 1 — Resta dentro del paréntesis (64 - 19)", placeholder: "Resultado...", accepted: ["45"] },
+            { label: "Camino 1 — Multiplica por 4", placeholder: "Total...", accepted: ["180"] },
+            { label: "Camino 2 (Distributiva) — Resultado de 64 × 4", placeholder: "Resultado...", accepted: ["256"] },
+            { label: "Camino 2 (Distributiva) — Resultado de 19 × 4", placeholder: "Resultado...", accepted: ["76"] },
+            { label: "Camino 2 — Diferencia final (256 - 76)", placeholder: "Total...", accepted: ["180"] }
           ],
-          wordBank: ["246", "45", "201", "195", "235"],
-          explanation: "(82 - 15) × 3 = (82 × 3) - (15 × 3) = 246 - 45 = 201 aceitunas."
+          explanation: "Camino 1: 45 × 4 = 180. Camino 2 (distributiva): (64 × 4) - (19 × 4) = 256 - 76 = 180 pegatinas."
         },
         {
           id: "ta_7",
-          type: "fill_blanks",
-          question: "Lucas necesita hacer una estimación rápida: cada día se venden unos 96 paquetes de yogures. Completa los pasos para estimar la venta semanal (7 días):",
-          template: "Redondea 96 a la centena más próxima, que es {0}. Luego multiplica {1} × 7 = {2} paquetes estimados en la semana.",
-          blanks: [
-            { placeholder: "centena...", accepted: ["100"] },
-            { placeholder: "número redondeado...", accepted: ["100"] },
-            { placeholder: "total paquetes...", accepted: ["700"] }
+          type: "estimate_split",
+          question: "Queremos tener en la tienda unos 2.100 rotuladores en total (es decir, unos 300 estuches de 7 rotuladores) repartidos entre tres colores. Escribe una combinación posible de estuches de cada color:",
+          unitSize: 7,
+          targetUnits: 2100,
+          targetPacks: 300,
+          minSum: 285,
+          maxSum: 315,
+          items: [
+            { label: "Estuches de rotuladores azules", placeholder: "N.º estuches..." },
+            { label: "Estuches de rotuladores verdes", placeholder: "N.º estuches..." },
+            { label: "Estuches de rotuladores rojos", placeholder: "N.º estuches..." }
           ],
-          wordBank: ["100", "700", "90", "630", "1.000"],
-          explanation: "96 está muy cerca de 100. Al redondear a 100: 100 × 7 = 700 paquetes estimados."
+          explanation: "Como 2.100 : 7 = 300 estuches en total, cualquier combinación de 3 cantidades positivas que sume alrededor de 300 estuches (por ejemplo: 120 + 100 + 80 = 300 → 300 × 7 = 2.100 rotuladores) es válida."
         },
         {
           id: "ta_8",
-          type: "text_input",
-          question: "El almacén necesita tener unos 1.200 briks de leche de avena. Si la leche viene en paquetes de 6 briks, ¿cuántos paquetes deben pedir aproximadamente?",
-          inputs: [
-            { label: "Número de paquetes estimados necesarios", placeholder: "Escribe el número de paquetes...", accepted: ["200", "200 paquetes"] }
+          type: "multiple_choice",
+          question: "Ha llegado una furgoneta con 74 packs de cuadernos (de 4 cada pack). Si en la estantería de la papelería ya había 28 packs, ¿cuántos cuadernos hay ahora en total para vender?",
+          options: [
+            "(74 + 28) × 4 = 102 × 4 = 408 cuadernos.",
+            "74 + 28 × 4 = 74 + 112 = 186 cuadernos.",
+            "74 × 4 + 28 = 296 + 28 = 324 cuadernos.",
+            "(74 - 28) × 4 = 46 × 4 = 184 cuadernos."
           ],
-          wordBank: ["200", "20", "2.000", "120", "600"],
-          explanation: "1.200 : 6 = 200 paquetes de leche. (Comprobación: 200 × 6 = 1.200 briks)."
+          correct: 0,
+          explanation: "Primero sumamos los packs que llegan y los que ya había: 74 + 28 = 102 packs. Después multiplicamos por 4 cuadernos: 102 × 4 = 408 cuadernos."
         },
         {
           id: "ta_9",
-          type: "multiple_choice",
-          question: "Llega un camión de reparto con 96 paquetes de leche entera (de 6 briks cada uno). En el almacén ya tenían 17 paquetes iguales. ¿Qué operación combinada calcula cuántos briks hay ahora para vender?",
-          options: [
-            "(96 + 17) × 6 = 113 × 6 = 678 briks.",
-            "96 + (17 × 6) = 96 + 102 = 198 briks.",
-            "(96 × 17) + 6 = 1.632 + 6 = 1.638 briks.",
-            "(96 - 17) × 6 = 79 × 6 = 474 briks."
+          type: "text_input",
+          question: "Clara tenía en casa 3 cajas de lápices de colores del catálogo (18 lápices cada caja). Ha regalado 11 lápices a su hermano pequeño y ha gastado otros 13 en un mural del colegio. ¿Cuántos lápices le quedan?",
+          inputs: [
+            { label: "Lápices que le quedan a Clara", placeholder: "Escribe la cantidad...", accepted: ["30", "30 lapices", "30 lápices"] }
           ],
-          correct: 0,
-          explanation: "Primero sumamos todos los paquetes: (96 + 17) = 113 paquetes. Luego multiplicamos por 6 briks: 113 × 6 = 678 briks."
+          explanation: "Operación combinada: (3 × 18) - (11 + 13) = 54 - 24 = 30 lápices le quedan."
         },
         {
           id: "ta_10",
-          type: "classify_inputs",
-          question: "Valentina revisa el inventario de yogures de la despensa: quedaban 3 yogures sueltos, han comprado 2 paquetes de 8 yogures naturales y 1 paquete de 8 de fresa. La familia ya se ha tomado 5 naturales y 4 de fresa. Clasifica las cantidades del problema:",
-          items: [
-            { name: "Total de yogures nuevos comprados (3 paquetes de 8)", placeholder: "Escribe la cantidad...", accepted: ["24", "24 yogures"] },
-            { name: "Total de yogures consumidos (5 naturales + 4 de fresa)", placeholder: "Escribe la cantidad...", accepted: ["9", "9 yogures"] },
-            { name: "Yogures que quedan en total (3 iniciales + 24 - 9)", placeholder: "Escribe la cantidad...", accepted: ["18", "18 yogures"] }
+          type: "text_input",
+          question: "En el taller de arte quedaban 5 rotuladores sueltos. Compraron 3 estuches de rotuladores azules y 2 estuches de rotuladores rojos (recuerda mirar cuántos trae cada estuche en el catálogo). Durante la semana se secaron 6 azules y 8 rojos. ¿Cuántos rotuladores útiles quedan en total?",
+          inputs: [
+            { label: "Rotuladores útiles que quedan", placeholder: "Escribe el total...", accepted: ["26", "26 rotuladores"] }
           ],
-          explanation: "Nuevos comprados: 3 × 8 = 24. Consumidos: 5 + 4 = 9. Total restante: 3 + 24 - 9 = 27 - 9 = 18 yogures."
+          explanation: "Compraron (3 + 2) × 7 = 35 rotuladores. Con los 5 que quedaban tenían 5 + 35 = 40. Se secaron 6 + 8 = 14. Quedan 40 - 14 = 26 rotuladores útiles."
         }
       ]
     },
 
-    // PRUEBA B: Saberes Oficiales y Preguntas Trampa (Curricular Formal Santillana)
+    // PRUEBA B: La Tienda de Deportes y Retos de Examen (Curricular Formal)
     testB: {
-      title: "Prueba B: Saberes Oficiales y Retos de Examen",
-      description: "Prueba de evaluación formal con los saberes curriculares directos de la Unidad 3 de Santillana Construyendo Mundos.",
-      context: "Pon a prueba tus conocimientos sobre términos de la multiplicación, propiedades formales, estimaciones al orden adecuado y resolución de operaciones combinadas con paréntesis.",
+      title: "Prueba B: La Tienda de Deportes y Retos de Examen",
+      catalog: "deportes",
+      description: "Prueba formal basada en el catálogo deportivo: cálculos por 1, 2 y 3 cifras (con ceros intermedios), propiedades, estimaciones, jerarquía y problemas de triple.",
+      context: "Revisa el catálogo deportivo para resolver los cálculos de pedidos, identificar propiedades sin pistas numéricas y superar las preguntas trampa típicas del examen.",
       questions: [
         {
           id: "tb_1",
-          type: "multiple_choice",
-          question: "¿Cómo se llama el resultado obtenido al realizar una multiplicación?",
-          options: [
-            "Producto.",
-            "Factor.",
-            "Cociente.",
-            "Diferencia."
+          type: "text_input",
+          question: "Observa el catálogo de deportes. Realiza la multiplicación 218 × 9 e indica qué artículo del catálogo se calcula:",
+          inputs: [
+            { label: "Resultado de 218 × 9", placeholder: "Escribe el producto...", accepted: ["1962", "1.962"] },
+            { label: "¿Qué artículo del catálogo tiene 9 unidades por envase?", placeholder: "Nombre del artículo...", accepted: ["pelotas", "pelotas de tenis", "pelota"] }
           ],
-          correct: 0,
-          explanation: "El resultado de una multiplicación es siempre el PRODUCTO. Los números que se multiplican son los FACTORES."
+          explanation: "218 × 9 = 1.962 pelotas de tenis (vienen en tubos de 9 pelotas)."
         },
         {
           id: "tb_2",
-          type: "fill_blanks",
-          question: "Aplica el truco de los ceros finales para completar los siguientes productos directos:",
-          template: "25 × 200 = {0} ; 247 × 6 = {1} ; 109 × 200 = {2}",
-          blanks: [
-            { placeholder: "25 x 200...", accepted: ["5.000", "5000"] },
-            { placeholder: "247 x 6...", accepted: ["1.482", "1482"] },
-            { placeholder: "109 x 200...", accepted: ["21.800", "21800"] }
+          type: "text_input",
+          question: "Calcula mentalmente estos productos con ceros finales:",
+          inputs: [
+            { label: "34 × 400 (banderines en 34 cajas)", placeholder: "Escribe el número...", accepted: ["13600", "13.600"] },
+            { label: "206 × 300", placeholder: "Escribe el número...", accepted: ["61800", "61.800"] },
+            { label: "1.420 × 10 (pulseras en 1.420 bolsas)", placeholder: "Escribe el número...", accepted: ["14200", "14.200"] }
           ],
-          wordBank: ["5.000", "1.482", "21.800", "500", "1.428", "2.180"],
-          explanation: "25 × 2 = 50 y dos ceros: 5.000. 247 × 6 = 1.482. 109 × 2 = 218 y dos ceros: 21.800."
+          explanation: "34 × 4 = 136 → 13.600; 206 × 3 = 618 → 61.800; 1.420 × 10 = 14.200."
         },
         {
           id: "tb_3",
           type: "text_input",
-          question: "Calcula con precisión la siguiente multiplicación de 4 cifras por 2 cifras: 1.012 × 24. Escribe el producto final:",
+          question: "Calcula con papel y lápiz cuántas unidades hay en 415 cajas de conos de entrenamiento (32 conos por caja): 415 × 32.",
           inputs: [
-            { label: "Producto de 1.012 × 24", placeholder: "Escribe el resultado...", accepted: ["24.288", "24288"] }
+            { label: "Producto de 415 × 32", placeholder: "Escribe el resultado...", accepted: ["13280", "13.280"] }
           ],
-          wordBank: ["24.288", "24.088", "20.248", "24.208"],
-          explanation: "1.012 × 4 = 4.048; 1.012 × 20 = 20.240; 4.048 + 20.240 = 24.288."
+          explanation: "415 × 2 = 830; 415 × 30 = 12.450; suma: 830 + 12.450 = 13.280 conos."
         },
         {
           id: "tb_4",
-          type: "classify_inputs",
-          question: "Identifica qué propiedad matemática se está aplicando en cada una de las siguientes igualdades escribiendo 'conmutativa', 'asociativa' o 'distributiva':",
-          items: [
-            { name: "16 × 6 = 6 × 16", placeholder: "propiedad...", accepted: ["conmutativa"] },
-            { name: "(3 × 10) × 2 = 3 × (10 × 2)", placeholder: "propiedad...", accepted: ["asociativa"] },
-            { name: "2 × (8 + 5) = (2 × 8) + (2 × 5)", placeholder: "propiedad...", accepted: ["distributiva"] }
+          type: "text_input",
+          question: "Multiplicación de 3 cifras con CERO intermedio: calcula 314 × 205 y escribe el resultado final.",
+          inputs: [
+            { label: "Producto de 314 × 205", placeholder: "Escribe el resultado...", accepted: ["64370", "64.370"] }
           ],
-          quickOptions: ["conmutativa", "asociativa", "distributiva"],
-          explanation: "16 × 6 = 6 × 16 cambia el orden (conmutativa). (3 × 10) × 2 cambia la agrupación con paréntesis (asociativa). 2 × (8 + 5) distribuye el factor en los sumandos (distributiva)."
+          explanation: "314 × 5 = 1.570; al ser 0 las decenas, saltamos dos lugares: 314 × 200 = 62.800. Suma: 1.570 + 62.800 = 64.370."
         },
         {
           id: "tb_5",
-          type: "fill_blanks",
-          question: "Completa el factor que falta en cada igualdad para que sea correcta:",
-          template: "Propiedad asociativa: 24 × (3 × 6) = (24 × {0}) × {1}. Propiedad conmutativa: 25 × 200 = {2} × 25.",
-          blanks: [
-            { placeholder: "primer factor...", accepted: ["3"] },
-            { placeholder: "segundo factor...", accepted: ["6"] },
-            { placeholder: "factor conmutado...", accepted: ["200"] }
+          type: "classify_inputs",
+          question: "Identifica qué propiedad se aplica en cada igualdad escribiendo o pulsando 'conmutativa', 'asociativa' o 'distributiva':",
+          items: [
+            { name: "19 × 5 = 5 × 19", placeholder: "propiedad...", accepted: ["conmutativa"] },
+            { name: "(4 × 10) × 3 = 4 × (10 × 3)", placeholder: "propiedad...", accepted: ["asociativa"] },
+            { name: "3 × (9 + 6) = (3 × 9) + (3 × 6)", placeholder: "propiedad...", accepted: ["distributiva"] }
           ],
-          wordBank: ["3", "6", "200", "24", "18", "25"],
-          explanation: "24 × (3 × 6) = (24 × 3) × 6 = 432. 25 × 200 = 200 × 25 = 5.000."
+          quickOptions: ["conmutativa", "asociativa", "distributiva"],
+          explanation: "19 × 5 = 5 × 19 intercambia el orden (conmutativa). (4 × 10) × 3 cambia los paréntesis (asociativa). 3 × (9 + 6) reparte el 3 sobre la suma (distributiva)."
         },
         {
           id: "tb_6",
           type: "text_input",
-          question: "¡Cuidado con la trampa! En la operación 15 + 4 × 8, ¿cuál es el resultado correcto respetando la jerarquía?",
+          question: "En 5 cajas de cromos (74 por caja) había 16 cromos repetidos en cada caja. Resuelve (74 - 16) × 5 aplicando la propiedad distributiva y comprueba que coincide:",
           inputs: [
-            { label: "Resultado de 15 + 4 × 8", placeholder: "Escribe el resultado...", accepted: ["47"] }
+            { label: "Camino 1 — Paréntesis primero: 58 × 5", placeholder: "Total...", accepted: ["290"] },
+            { label: "Camino 2 (Distributiva) — 74 × 5", placeholder: "Resultado...", accepted: ["370"] },
+            { label: "Camino 2 (Distributiva) — 16 × 5", placeholder: "Resultado...", accepted: ["80"] },
+            { label: "Camino 2 — Diferencia final: 370 - 80", placeholder: "Total...", accepted: ["290"] }
           ],
-          wordBank: ["47", "152", "19", "32"],
-          explanation: "¡Primero se multiplica! 4 × 8 = 32. Después se suma: 15 + 32 = 47. (Hacer 15 + 4 = 19 y luego 19 × 8 = 152 es el error típico de examen)."
+          explanation: "Por ambos caminos obtenemos 290 cromos no repetidos: 58 × 5 = 290 y 370 - 80 = 290."
         },
         {
           id: "tb_7",
-          type: "fill_blanks",
-          question: "Completa la descomposición de la propiedad distributiva respecto de la resta:",
-          template: "(82 - 15) × 3 = (82 × {0}) - ({1} × 3) = 246 - {2} = {3}",
-          blanks: [
-            { placeholder: "multiplicador 1...", accepted: ["3"] },
-            { placeholder: "minuendo resta...", accepted: ["15"] },
-            { placeholder: "15 x 3...", accepted: ["45"] },
-            { placeholder: "resultado...", accepted: ["201"] }
+          type: "text_input",
+          question: "¡Pregunta trampa! Respeta la jerarquía de las operaciones combinadas y calcula: 24 + 6 × 9",
+          inputs: [
+            { label: "Resultado de 24 + 6 × 9", placeholder: "Escribe el resultado...", accepted: ["78"] }
           ],
-          wordBank: ["3", "15", "45", "201", "67", "246"],
-          explanation: "(82 - 15) × 3 = (82 × 3) - (15 × 3) = 246 - 45 = 201."
+          explanation: "¡Primero la multiplicación! 6 × 9 = 54, y después sumamos: 24 + 54 = 78. (Hacer 30 × 9 = 270 es el error típico)."
         },
         {
           id: "tb_8",
           type: "multiple_choice",
-          question: "Para estimar 385 × 6, ¿a qué orden debemos redondear el primer factor (385)?",
+          question: "Al campamento han llegado 487 packs de bidones deportivos (de 5 bidones cada pack). ¿Cuál es la mejor estimación redondeando los packs a las centenas?",
           options: [
-            "A las centenas: 385 se redondea a 400, luego 400 × 6 = 2.400.",
-            "A las decenas: 385 se redondea a 380, luego 380 × 6.",
-            "A los millares: 385 se redondea a 1.000.",
-            "A las unidades: 385 no se redondea."
+            "487 se redondea a 500 → 500 × 5 = 2.500 bidones aproximadamente.",
+            "487 se redondea a 400 → 400 × 5 = 2.000 bidones.",
+            "487 se redondea a 480 → 480 × 5 = 2.400 bidones.",
+            "487 se redondea a 1.000 → 1.000 × 5 = 5.000 bidones."
           ],
           correct: 0,
-          explanation: "El orden mayor de 385 son las centenas. Como la decena es un 8 (mayor que 5), 385 se redondea a 400: 400 × 6 = 2.400."
+          explanation: "La decena de 487 es 8 (mayor o igual que 5), así que la centena más cercana es 500: 500 × 5 = 2.500 bidones."
         },
         {
           id: "tb_9",
           type: "text_input",
-          question: "Resuelve paso a paso la siguiente operación combinada con paréntesis: 2 × (14 + 6) - 15. Escribe el resultado final:",
+          question: "Resuelve paso a paso esta operación combinada: 3 × (16 + 9) - 18",
           inputs: [
-            { label: "Resultado de 2 × (14 + 6) - 15", placeholder: "Escribe el resultado...", accepted: ["25"] }
+            { label: "Resultado final", placeholder: "Escribe el número...", accepted: ["57"] }
           ],
-          wordBank: ["25", "40", "13", "35"],
-          explanation: "Paso 1 (paréntesis): 14 + 6 = 20. Paso 2 (multiplicación): 2 × 20 = 40. Paso 3 (resta): 40 - 15 = 25."
+          explanation: "1.º Paréntesis: 16 + 9 = 25. 2.º Multiplicación: 3 × 25 = 75. 3.º Resta: 75 - 18 = 57."
         },
         {
           id: "tb_10",
-          type: "fill_blanks",
-          question: "Usa la propiedad distributiva para calcular mentalmente 8 × 23 descomponiendo el 23 en 20 + 3:",
-          template: "8 × 23 = 8 × (20 + 3) = (8 × 20) + (8 × 3) = {0} + {1} = {2}",
-          blanks: [
-            { placeholder: "8 x 20...", accepted: ["160"] },
-            { placeholder: "8 x 3...", accepted: ["24"] },
-            { placeholder: "suma total...", accepted: ["184"] }
+          type: "text_input",
+          question: "En una caja de entrenamiento hay 18 conos azules, el TRIPLE de conos rojos que de azules, y 7 conos amarillos menos que azules. ¿Cuántos conos hay en total en la caja?",
+          inputs: [
+            { label: "Total de conos en la caja", placeholder: "Escribe el total...", accepted: ["83", "83 conos"] }
           ],
-          wordBank: ["160", "24", "184", "180", "164"],
-          explanation: "8 × 20 = 160 y 8 × 3 = 24. 160 + 24 = 184. ¡Un truco infalible de cálculo mental!"
+          explanation: "Azules: 18. Rojos (triple): 18 × 3 = 54. Amarillos (7 menos que azules): 18 - 7 = 11. Total: 18 + 54 + 11 = 83 conos."
         }
       ]
     }
   },
 
   // ===========================================================================
-  // BANCO DINÁMICO PARA EL DESAFÍO EXPRESS (TEST INFINITO)
+  // BANCO DINÁMICO PARA EL DESAFÍO EXPRESS (18 PREGUNTAS ORIGINALES)
   // ===========================================================================
   expressPool: [
     {
@@ -647,88 +637,111 @@ const MATH_DATA = {
       explanation: "7 × 8 = 56 y añades un cero: 560."
     },
     {
-      question: "¿Cuánto es 400 × 5?",
-      options: ["2.000", "200", "20.000", "2.400"],
+      question: "¿Cuánto es 400 × 6?",
+      options: ["2.400", "240", "24.000", "2.000"],
       correct: 0,
-      explanation: "4 × 5 = 20 y añades dos ceros: 2.000."
+      explanation: "4 × 6 = 24 y añades dos ceros: 2.400."
     },
     {
-      question: "¿Qué propiedad dice que 15 × 4 = 4 × 15?",
-      options: ["Propiedad Conmutativa", "Propiedad Asociativa", "Propiedad Distributiva", "Propiedad Fundamental"],
+      question: "¿Qué propiedad dice que 19 × 5 = 5 × 19?",
+      options: ["Propiedad Conmutativa", "Propiedad Asociativa", "Propiedad Distributiva", "Prueba de la suma"],
       correct: 0,
       explanation: "El orden de los factores no altera el producto: propiedad conmutativa."
     },
     {
-      question: "En la operación (5 × 2) × 9 = 5 × (2 × 9), ¿qué propiedad se cumple?",
+      question: "En la igualdad (5 × 4) × 18 = 5 × (4 × 18), ¿qué propiedad se aplica?",
       options: ["Propiedad Asociativa", "Propiedad Conmutativa", "Propiedad Distributiva", "Propiedad Inversa"],
       correct: 0,
-      explanation: "Cambia la forma de agrupar los tres factores: propiedad asociativa."
+      explanation: "Se cambia la forma de agrupar los tres factores mediante paréntesis: propiedad asociativa."
     },
     {
-      question: "¿Cuánto es 3 × (10 + 4)?",
-      options: ["42", "34", "30", "17"],
+      question: "¿Cuánto es 4 × (10 + 7)?",
+      options: ["68", "47", "40", "21"],
       correct: 0,
-      explanation: "3 × 14 = 42; o también (3 × 10) + (3 × 4) = 30 + 12 = 42."
+      explanation: "4 × 17 = 68; o distribuyendo: (4 × 10) + (4 × 7) = 40 + 28 = 68."
     },
     {
-      question: "¿Cuánto es 6 × 90?",
-      options: ["540", "54", "5.400", "560"],
+      question: "¿Cuánto es 9 × 70?",
+      options: ["630", "63", "6.300", "560"],
       correct: 0,
-      explanation: "6 × 9 = 54 y añades el 0: 540."
+      explanation: "9 × 7 = 63 y añades un cero: 630."
     },
     {
-      question: "¿Cuánto es 120 × 10?",
-      options: ["1.200", "12.000", "120", "1.210"],
+      question: "¿Cuánto es 142 × 100?",
+      options: ["14.200", "1.420", "142.000", "14.020"],
       correct: 0,
-      explanation: "Añades un cero: 1.200."
+      explanation: "Al multiplicar por 100 añadimos dos ceros al final: 14.200."
     },
     {
-      question: "Si redondeamos 489 a las centenas para estimar un producto, ¿qué número obtenemos?",
+      question: "Si redondeamos 487 a las centenas para estimar un producto, ¿qué número obtenemos?",
       options: ["500", "400", "490", "1.000"],
       correct: 0,
-      explanation: "Como la decena es un 8 (≥ 5), redondeamos hacia arriba a 500."
+      explanation: "Como la decena es 8 (mayor o igual que 5), redondeamos hacia arriba a 500."
     },
     {
-      question: "¿Cuánto es 8 × 200?",
-      options: ["1.600", "160", "16.000", "1.800"],
+      question: "¿Cuánto es 102 × 30?",
+      options: ["3.060", "306", "30.600", "3.600"],
       correct: 0,
-      explanation: "8 × 2 = 16 y dos ceros: 1.600."
+      explanation: "102 × 3 = 306 y añadimos un cero: 3.060."
     },
     {
-      question: "En 20 + 5 × 4, ¿qué resultado da?",
-      options: ["40", "100", "29", "80"],
+      question: "En la operación 24 + 6 × 9, ¿qué resultado da?",
+      options: ["78", "270", "39", "144"],
       correct: 0,
-      explanation: "Primero 5 × 4 = 20, luego 20 + 20 = 40."
+      explanation: "Primero multiplicamos 6 × 9 = 54, y luego sumamos 24 + 54 = 78."
     },
     {
-      question: "¿Cuánto es 9 × 300?",
-      options: ["2.700", "270", "27.000", "2.900"],
+      question: "¿Cuánto es 8 × 300?",
+      options: ["2.400", "240", "24.000", "2.800"],
       correct: 0,
-      explanation: "9 × 3 = 27 y dos ceros: 2.700."
+      explanation: "8 × 3 = 24 y dos ceros: 2.400."
     },
     {
-      question: "¿Qué propiedad se usa en 5 × (20 - 2) = (5 × 20) - (5 × 2)?",
+      question: "¿Qué propiedad se usa en 4 × (64 - 19) = (4 × 64) - (4 × 19)?",
       options: ["Distributiva respecto de la resta", "Conmutativa", "Asociativa", "De los ceros"],
       correct: 0,
-      explanation: "El 5 se distribuye restando ambos productos: propiedad distributiva."
+      explanation: "El factor 4 se distribuye multiplicando a los dos términos de la resta."
     },
     {
-      question: "¿Cuánto es 11 × 100?",
-      options: ["1.100", "110", "11.000", "1.110"],
+      question: "¿Cuánto es el TRIPLE de 18?",
+      options: ["54", "36", "48", "64"],
       correct: 0,
-      explanation: "Añades dos ceros: 1.100."
+      explanation: "El triple es multiplicar por 3: 18 × 3 = 54."
     },
     {
-      question: "¿Cuánto es 25 × 4?",
-      options: ["100", "75", "125", "90"],
+      question: "¿Cuánto es 4 × 25 × 7?",
+      options: ["700", "175", "7.000", "280"],
       correct: 0,
-      explanation: "25 + 25 + 25 + 25 = 100."
+      explanation: "Asociamos primero 4 × 25 = 100, y luego 100 × 7 = 700."
     },
     {
-      question: "¿Cuánto es 50 × 60?",
-      options: ["3.000", "300", "30.000", "360"],
+      question: "¿Cuánto es 50 × 40?",
+      options: ["2.000", "200", "20.000", "900"],
       correct: 0,
-      explanation: "5 × 6 = 30 y añades dos ceros: 3.000."
+      explanation: "5 × 4 = 20 y añades los dos ceros: 2.000."
+    },
+    {
+      question: "Al multiplicar 216 × 204 en vertical, ¿qué hacemos al llegar al 0 de las decenas?",
+      options: [
+        "Saltamos dos lugares a la izquierda para escribir directamente el producto por las centenas.",
+        "Lo multiplicamos igual que si fuera un 1.",
+        "Ponemos el resultado debajo de las unidades.",
+        "Se borra el 4 y solo se multiplica por 200."
+      ],
+      correct: 0,
+      explanation: "Como hay 0 decenas, desplazamos el producto de las centenas dos lugares a la izquierda (hueco de unidades y decenas)."
+    },
+    {
+      question: "Si 1 pack trae 4 cuadernos, ¿cuántos packs necesito para tener unos 1.600 cuadernos?",
+      options: ["400 packs", "40 packs", "4.000 packs", "160 packs"],
+      correct: 0,
+      explanation: "400 × 4 = 1.600 cuadernos."
+    },
+    {
+      question: "¿Cuánto es 3 × (12 + 8) - 10?",
+      options: ["50", "34", "60", "30"],
+      correct: 0,
+      explanation: "Paréntesis: 12 + 8 = 20. Multiplicación: 3 × 20 = 60. Resta: 60 - 10 = 50."
     }
   ],
 
@@ -743,8 +756,8 @@ const MATH_DATA = {
       badge: "Maestra del Rayo",
       description: "Resuelve multiplicaciones directas con decenas y centenas netas antes de que se agote el tiempo.",
       generator: function() {
-        var base1 = [3, 4, 5, 6, 7, 8, 9, 12, 15, 25];
-        var base2 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300];
+        var base1 = [3, 4, 5, 6, 7, 8, 9, 12, 14, 18, 25];
+        var base2 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 300, 400];
         var n1 = base1[Math.floor(Math.random() * base1.length)];
         var n2 = base2[Math.floor(Math.random() * base2.length)];
         var prod = n1 * n2;
@@ -783,29 +796,29 @@ const MATH_DATA = {
           {
             prop: "Conmutativa",
             eqs: [
-              "14 × 5 = 5 × 14",
-              "25 × 200 = 200 × 25",
-              "109 × 8 = 8 × 109",
-              "36 × 7 = 7 × 36",
-              "98 × 12 = 12 × 98"
+              "14 × 7 = 7 × 14",
+              "35 × 300 = 300 × 35",
+              "19 × 5 = 5 × 19",
+              "34 × 400 = 400 × 34",
+              "68 × 9 = 9 × 68"
             ]
           },
           {
             prop: "Asociativa",
             eqs: [
+              "(5 × 4) × 18 = 5 × (4 × 18)",
+              "18 × (3 × 4) = (18 × 3) × 4",
               "(4 × 10) × 3 = 4 × (10 × 3)",
-              "24 × (3 × 6) = (24 × 3) × 6",
-              "(5 × 2) × 18 = 5 × (2 × 18)",
-              "7 × (2 × 5) = (7 × 2) × 5"
+              "(4 × 25) × 13 = 4 × (25 × 13)"
             ]
           },
           {
             prop: "Distributiva",
             eqs: [
-              "3 × (8 + 4) = (3 × 8) + (3 × 4)",
-              "5 × (20 - 3) = (5 × 20) - (5 × 3)",
-              "(82 - 15) × 3 = (82 × 3) - (15 × 3)",
-              "6 × (10 + 5) = 60 + 30"
+              "3 × (7 + 4) = (3 × 7) + (3 × 4)",
+              "(64 - 19) × 4 = (64 × 4) - (19 × 4)",
+              "5 × (18 - 6) = (5 × 18) - (5 × 6)",
+              "6 × (30 + 4) = 180 + 24"
             ]
           }
         ];
@@ -827,17 +840,17 @@ const MATH_DATA = {
       description: "Estima de cabeza en un parpadeo si el producto supera 1.000 o se queda por debajo.",
       generator: function() {
         var pairs = [
-          { q: "48 × 20", prod: 48 * 20 }, // 960 (Menor)
-          { q: "52 × 20", prod: 52 * 20 }, // 1.040 (Mayor)
-          { q: "125 × 8", prod: 125 * 8 }, // 1.000 (Exacto -> Igual)
-          { q: "310 × 4", prod: 310 * 4 }, // 1.240 (Mayor)
-          { q: "19 × 50", prod: 19 * 50 }, // 950 (Menor)
-          { q: "250 × 5", prod: 250 * 5 }, // 1.250 (Mayor)
-          { q: "180 × 5", prod: 180 * 5 }, // 900 (Menor)
-          { q: "99 × 10", prod: 99 * 10 }, // 990 (Menor)
-          { q: "105 × 10", prod: 105 * 10 }, // 1.050 (Mayor)
-          { q: "35 × 30", prod: 35 * 30 }, // 1.050 (Mayor)
-          { q: "24 × 40", prod: 24 * 40 }  // 960 (Menor)
+          { q: "48 × 20", prod: 48 * 20 },   // 960
+          { q: "52 × 20", prod: 52 * 20 },   // 1.040
+          { q: "140 × 8", prod: 140 * 8 },   // 1.120
+          { q: "310 × 4", prod: 310 * 4 },   // 1.240
+          { q: "19 × 50", prod: 19 * 50 },   // 950
+          { q: "250 × 5", prod: 250 * 5 },   // 1.250
+          { q: "180 × 5", prod: 180 * 5 },   // 900
+          { q: "98 × 10", prod: 98 * 10 },   // 980
+          { q: "106 × 10", prod: 106 * 10 }, // 1.060
+          { q: "35 × 30", prod: 35 * 30 },   // 1.050
+          { q: "24 × 40", prod: 24 * 40 }    // 960
         ];
         var item = pairs[Math.floor(Math.random() * pairs.length)];
         var isMayor = item.prod > 1000;
@@ -857,23 +870,6 @@ const MATH_DATA = {
   // ===========================================================================
   lab: {
     title: "Laboratorio Interactivo de Multiplicación",
-    tools: [
-      {
-        id: "grid-conmutativa",
-        title: "Demostrador Táctil de la Propiedad Conmutativa",
-        desc: "Cambia las filas y columnas o pulsa 'Girar' para ver cómo la cuadrícula demuestra que el total es idéntico."
-      },
-      {
-        id: "desglosador-distributiva",
-        title: "Desglosador Visual de la Propiedad Distributiva",
-        desc: "Descompón multiplicaciones de dos cifras (como 6 × 14) en suma de decenas y unidades para calcular de cabeza."
-      },
-      {
-        id: "fabrica-ceros",
-        title: "La Fábrica de Ceros Mágicos",
-        desc: "Multiplica cualquier número por 10, 100, 1.000, 20 o 300 y observa cómo saltan los ceros al resultado final."
-      }
-    ],
     funFacts: [
       {
         title: "El truco de los dedos en la Tabla del 9",
@@ -899,7 +895,7 @@ const MATH_DATA = {
   },
 
   // ===========================================================================
-  // ESQUEMAS VISUALES DE REPASO
+  // ESQUEMAS VISUALES DE REPASO (SIN NÚMEROS DEL LIBRO)
   // ===========================================================================
   cheatsheet: {
     title: "Esquemas Visuales de Repaso · Unidad 3",
@@ -907,27 +903,32 @@ const MATH_DATA = {
       {
         title: "1. Términos de la Multiplicación",
         icon: "📦",
-        content: "• <b>Factores:</b> Los números que multiplicamos entre sí.<br>• <b>Producto:</b> El resultado final.<br>• <b>Suma repetida:</b> 6 × 8 = 8 + 8 + 8 + 8 + 8 + 8 = 48."
+        content: "• <b>Factores:</b> Los números que multiplicamos entre sí.<br>• <b>Producto:</b> El resultado final.<br>• <b>Ejemplo:</b> En 136 × 7 = 952, <b>136</b> y <b>7</b> son los factores y <b>952</b> es el producto."
       },
       {
         title: "2. Las 3 Propiedades Fundamentales",
         icon: "🔄",
-        content: "• <b>Conmutativa:</b> El orden de los factores no altera el producto.<br>&nbsp;&nbsp;<i>Ejemplo:</i> 16 × 6 = 6 × 16 = 96.<br>• <b>Asociativa:</b> Para multiplicar tres factores, asociamos dos primero.<br>&nbsp;&nbsp;<i>Ejemplo:</i> (3 × 10) × 2 = 3 × (10 × 2) = 60.<br>• <b>Distributiva:</b> Se multiplica por cada término del paréntesis.<br>&nbsp;&nbsp;<i>Suma:</i> 2 × (8 + 5) = (2 × 8) + (2 × 5) = 16 + 10 = 26.<br>&nbsp;&nbsp;<i>Resta:</i> (82 - 15) × 3 = (82 × 3) - (15 × 3) = 246 - 45 = 201."
+        content: "• <b>Conmutativa:</b> El orden de los factores no altera el producto.<br>&nbsp;&nbsp;<i>Ejemplo:</i> 14 × 7 = 7 × 14 = 98.<br>• <b>Asociativa:</b> Para multiplicar tres factores, asociamos dos primero.<br>&nbsp;&nbsp;<i>Ejemplo:</i> (5 × 4) × 18 = 5 × (4 × 18) = 360.<br>• <b>Distributiva:</b> Se multiplica por cada término del paréntesis.<br>&nbsp;&nbsp;<i>Suma:</i> 3 × (7 + 4) = (3 × 7) + (3 × 4) = 21 + 12 = 33.<br>&nbsp;&nbsp;<i>Resta:</i> (64 - 19) × 4 = (64 × 4) - (19 × 4) = 256 - 76 = 180."
       },
       {
-        title: "3. La Magia de los Ceros",
+        title: "3. Ceros Finales y Ceros Intermedios",
         icon: "0️⃣",
-        content: "• <b>Por 10, 100, 1.000:</b> Añade 1, 2 o 3 ceros al final.<br>&nbsp;&nbsp;1.305 × 10 = 13.050 &nbsp;|&nbsp; 48 × 100 = 4.800.<br>• <b>Por 20, 200, 300:</b> Multiplica sin ceros y añádelos al final.<br>&nbsp;&nbsp;109 × 200 = 21.800 (109 × 2 = 218 y dos ceros)."
+        content: "• <b>Por 10, 100, 1.000:</b> Añade 1, 2 o 3 ceros al final.<br>&nbsp;&nbsp;1.420 × 10 = 14.200 &nbsp;|&nbsp; 248 × 100 = 24.800.<br>• <b>Por 200, 300, 400:</b> Multiplica sin ceros y añádelos al final.<br>&nbsp;&nbsp;206 × 300 = 61.800 (206 × 3 = 618 y dos ceros).<br>• <b>Cero intermedio (ej. 216 × 204):</b> Multiplica por las unidades (4) y, como hay 0 decenas, salta dos huecos a la izquierda para multiplicar por las centenas (2)."
       },
       {
         title: "4. Estimación de Productos",
         icon: "🎯",
-        content: "1. Redondea el factor al mayor de sus órdenes (decena o centena).<br>2. Regla del 5: si la cifra siguiente es 5 o mayor, sumas 1 al orden; si es menor, se queda igual.<br>3. Multiplica el número redondeado: 96 × 7 ≈ 100 × 7 = 700."
+        content: "1. Redondea el factor al mayor de sus órdenes (decena o centena).<br>2. Regla del 5: si la cifra siguiente es 5 o mayor, sumas 1; si es menor que 5, se queda igual.<br>3. Multiplica el número redondeado: 78 × 5 ≈ 80 × 5 = 400."
       },
       {
         title: "5. Jerarquía de Operaciones Combinadas",
         icon: "👑",
-        content: "<b>1.º Paréntesis ()</b> siempre en primer lugar.<br><b>2.º Multiplicaciones (×)</b> antes que sumas o restas.<br><b>3.º Sumas y restas (+ -)</b> de izquierda a derecha.<br><i>¡Trampa de examen!</i> En 15 + 4 × 8, primero se hace 4 × 8 = 32, y luego 15 + 32 = 47."
+        content: "<b>1.º Paréntesis ()</b> siempre en primer lugar.<br><b>2.º Multiplicaciones (×)</b> antes que sumas o restas.<br><b>3.º Sumas y restas (+ -)</b> de izquierda a derecha.<br><i>¡Trampa de examen!</i> En 24 + 6 × 9, primero se hace 6 × 9 = 54, y luego 24 + 54 = 78."
+      },
+      {
+        title: "6. Truco para Doble y Triple",
+        icon: "✨",
+        content: "• <b>Doble:</b> Multiplicar por <b>2</b> (el doble de 26 es 26 × 2 = 52).<br>• <b>Triple:</b> Multiplicar por <b>3</b> (el triple de 18 es 18 × 3 = 54)."
       }
     ]
   }

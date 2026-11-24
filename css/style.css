@@ -330,6 +330,66 @@ main.app-main {
   gap: 0.5rem;
 }
 
+/* Cuadrícula de multiplicación en vertical por columnas (U, D, C, UM...) */
+.vert-grid {
+  display: grid;
+  gap: 0.25rem;
+  align-items: center;
+  justify-items: center;
+  font-family: 'Outfit', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.vert-header-cell {
+  width: 2rem;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #64748b;
+  letter-spacing: 0.04em;
+}
+
+.vert-cell {
+  width: 2rem;
+  height: 2.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.vert-shift-cell {
+  background-color: #fef3c7;
+  color: #b45309;
+  border-radius: 0.45rem;
+  font-size: 0.95rem;
+  border: 1px dashed #fbbf24;
+}
+
+/* Inputs de tabla de estimación en examen */
+.table-input {
+  width: 100%;
+  min-width: 82px;
+  max-width: 120px;
+  padding: 0.4rem 0.5rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 0.65rem;
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background-color: #ffffff;
+}
+.table-input:focus {
+  border-color: #059669;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.border-b-4 {
+  border-bottom-width: 4px !important;
+}
+
 /* =============================================================================
    ESTILOS DE IMPRESIÓN (DIPLOMA Y ESQUEMAS)
    ============================================================================= */
@@ -339,6 +399,12 @@ main.app-main {
     color: #000000 !important;
   }
   .no-print, header, nav, footer, .btn-bounce {
+    display: none !important;
+  }
+  body.printing-diploma #printable-cheatsheet {
+    display: none !important;
+  }
+  body.printing-cheatsheet #printable-diploma {
     display: none !important;
   }
   main.app-main {
@@ -414,6 +480,7 @@ main.app-main {
 .text-cyan-700 { color: #0e7490 !important; }
 
 .text-sky-600 { color: #0284c7 !important; }
+.text-sky-700 { color: #0369a1 !important; }
 .text-sky-900 { color: #0c4a6e !important; }
 
 .text-amber-600 { color: #d97706 !important; }
@@ -449,6 +516,7 @@ main.app-main {
 
 .border-rose-200 { border-color: #fecdd3 !important; }
 .border-rose-300 { border-color: #fda4af !important; }
+.border-rose-400 { border-color: #fb7185 !important; }
 
 /* Estados Hover y Focus */
 .hover\:bg-emerald-50:hover { background-color: #ecfdf5 !important; }
@@ -466,6 +534,7 @@ main.app-main {
 
 .hover\:text-emerald-700:hover { color: #047857 !important; }
 .hover\:text-emerald-900:hover { color: #064e3b !important; }
+.hover\:text-amber-900:hover { color: #78350f !important; }
 .hover\:text-slate-600:hover { color: #475569 !important; }
 .hover\:text-slate-800:hover { color: #1e293b !important; }
 

@@ -160,7 +160,7 @@
             🏆
           </div>
           <h3 class="text-lg font-black text-slate-900 mb-1">Simulador de Examen</h3>
-          <p class="text-xs text-slate-500 font-semibold mb-3">Prueba A Competencial (Ecomercado) y Prueba B Curricular Formal con rellenar huecos, cálculo escrito y nota sobre 10.</p>
+          <p class="text-xs text-slate-500 font-semibold mb-3">Prueba A (Gran Papelería) y Prueba B (Tienda de Deportes) con catálogo, tablas, cálculo escrito y nota sobre 10.</p>
           <span class="text-xs font-black text-amber-600 inline-flex items-center gap-1">Probar examen ➜</span>
         </div>
 
@@ -254,7 +254,7 @@
           </span>
           <h2 class="text-2xl sm:text-3xl font-black text-slate-900">¿Qué prueba quieres entrenar hoy, Olivia?</h2>
           <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
-            Elige entre la prueba competencial contextualizada en el Ecomercado o la prueba curricular formal con preguntas trampa de examen.
+            Elige entre el caso práctico en La Gran Papelería o los retos de La Tienda de Deportes con multiplicaciones de hasta 3 cifras, tablas y preguntas trampa.
           </p>
         </div>
 
@@ -263,18 +263,18 @@
           <!-- Tarjeta Prueba A -->
           <div class="card-playful p-6 flex flex-col justify-between border-2 border-emerald-200 hover:border-emerald-500 transition-colors">
             <div>
-              <span class="text-3xl mb-3 block">🍎</span>
+              <span class="text-3xl mb-3 block">🖍️</span>
               <div class="flex items-center gap-2 mb-1">
                 <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-0.5 rounded-full font-black">PRUEBA A</span>
                 <span class="text-xs font-bold text-slate-500">Competencial</span>
               </div>
-              <h3 class="text-lg font-black text-slate-900 mb-2">El Gran Pedido del Ecomercado</h3>
+              <h3 class="text-lg font-black text-slate-900 mb-2">La Gran Papelería y Taller Creativo</h3>
               <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                Acompaña a Olivia, Lucas y Mateo a gestionar albaranes de fruta, lácteos de avena y paquetes de conservas aplicando propiedades y operaciones combinadas.
+                Usa el catálogo de rotuladores, cuadernos, clips, lápices, pegatinas y folios para calcular pedidos, completar tablas de almacén y estimar repartos.
               </p>
               <ul class="text-xs text-slate-600 space-y-1.5 mb-6">
-                <li class="flex items-center gap-1.5">✓ <span>10 retos prácticos de almacén y distribución</span></li>
-                <li class="flex items-center gap-1.5">✓ <span>Rellenar huecos, cálculo escrito y selección</span></li>
+                <li class="flex items-center gap-1.5">✓ <span>10 retos completos con catálogo visible</span></li>
+                <li class="flex items-center gap-1.5">✓ <span>Tabla de almacén, estimación en 2 pasos y reparto libre</span></li>
                 <li class="flex items-center gap-1.5">✓ <span>Calificación sobre 10 y revisión detallada</span></li>
               </ul>
             </div>
@@ -286,19 +286,19 @@
           <!-- Tarjeta Prueba B -->
           <div class="card-playful p-6 flex flex-col justify-between border-2 border-slate-200 hover:border-emerald-500 transition-colors">
             <div>
-              <span class="text-3xl mb-3 block">📝</span>
+              <span class="text-3xl mb-3 block">🎾</span>
               <div class="flex items-center gap-2 mb-1">
                 <span class="bg-indigo-100 text-indigo-800 text-xs px-2.5 py-0.5 rounded-full font-black">PRUEBA B</span>
                 <span class="text-xs font-bold text-slate-500">Curricular Formal</span>
               </div>
-              <h3 class="text-lg font-black text-slate-900 mb-2">Saberes Oficiales y Retos de Examen</h3>
+              <h3 class="text-lg font-black text-slate-900 mb-2">La Tienda de Deportes y Retos de Examen</h3>
               <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                Preguntas curriculares directas del control de Santillana: términos de la multiplicación, nombres de propiedades, ceros y jerarquía sagrada.
+                Cálculo con catálogo deportivo: multiplicaciones de 2 y 3 cifras con ceros intermedios, doble camino distributivo, jerarquía y problemas con triple.
               </p>
               <ul class="text-xs text-slate-600 space-y-1.5 mb-6">
-                <li class="flex items-center gap-1.5">✓ <span>10 preguntas de conceptos y preguntas trampa</span></li>
-                <li class="flex items-center gap-1.5">✓ <span>Completar factores ocultos y clasificar propiedades</span></li>
-                <li class="flex items-center gap-1.5">✓ <span>Diploma de honor en calificaciones altas</span></li>
+                <li class="flex items-center gap-1.5">✓ <span>10 retos de cálculo limpio sin pistas numéricas</span></li>
+                <li class="flex items-center gap-1.5">✓ <span>Ceros intermedios, propiedades y preguntas trampa</span></li>
+                <li class="flex items-center gap-1.5">✓ <span>Diploma de honor al terminar la prueba</span></li>
               </ul>
             </div>
             <button onclick="app.startExam('testB')" class="btn-bounce w-full py-2.5 rounded-xl font-black text-sm text-white bg-indigo-600 hover:bg-indigo-700 shadow-md">
@@ -452,15 +452,20 @@
     <section id="view-chuleta" class="hidden space-y-8">
       
       <!-- Bloques de Esquemas -->
-      <div class="space-y-4 no-print">
-        <div class="flex items-center justify-between">
+      <div id="printable-cheatsheet" class="space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
           <div>
             <h2 class="text-2xl font-black text-slate-900">Esquemas de Repaso · Unidad 3</h2>
             <p class="text-xs text-slate-500 font-semibold">Todo lo esencial para repasar antes de entrar al examen</p>
           </div>
-          <span class="text-xs font-bold bg-amber-50 text-amber-800 px-3 py-1 rounded-full border border-amber-200">
-            Resumen Visual
-          </span>
+          <div class="flex items-center gap-2 no-print">
+            <span class="text-xs font-bold bg-amber-50 text-amber-800 px-3 py-1 rounded-full border border-amber-200">
+              Resumen Visual
+            </span>
+            <button onclick="app.printSection('cheatsheet')" class="btn-bounce px-4 py-1.5 rounded-xl font-black text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-xs">
+              🖨️ Imprimir Esquemas
+            </button>
+          </div>
         </div>
 
         <div id="cheatsheet-sections" class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -469,7 +474,7 @@
       </div>
 
       <!-- Diploma Oficial Imprimible -->
-      <div class="pt-6 border-t border-slate-200">
+      <div id="printable-diploma" class="pt-6 border-t border-slate-200">
         <div class="text-center mb-6 no-print space-y-3">
           <div>
             <h3 class="text-xl font-black text-slate-900 mb-1">🎓 Diploma de Honor Oficial de Olivia</h3>
@@ -493,18 +498,18 @@
             ¡Enhorabuena, <span id="diploma-student-name" class="text-emerald-700">Olivia</span>!
           </h2>
           <p class="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed mb-6">
-            Por haber superado con sobresaliente el entrenamiento del <strong>Tema 3: La Multiplicación</strong> (Propiedades Conmutativa, Asociativa y Distributiva, Ceros Finales, Estimaciones y Operaciones Combinadas).
+            Por haber superado con sobresaliente el entrenamiento del <strong>Tema 3: La Multiplicación</strong> (Propiedades Conmutativa, Asociativa y Distributiva, Ceros Finales e Intermedios, Estimaciones y Operaciones Combinadas).
           </p>
 
           <div class="inline-flex items-center gap-3 bg-white px-6 py-2.5 rounded-2xl border-2 border-emerald-300 shadow-sm mb-6">
             <span class="text-xs font-black uppercase text-slate-500">Calificación:</span>
-            <span id="diploma-grade" class="text-2xl font-black text-emerald-600 font-display">10 / 10</span>
+            <span id="diploma-grade" class="text-2xl font-black text-emerald-600 font-display">Pendiente de examen</span>
           </div>
 
           <div class="flex items-center justify-between text-xs font-bold text-slate-500 border-t border-slate-200 pt-4 px-4">
             <div>
               <span>Fecha:</span>
-              <strong id="diploma-date" class="text-slate-700 block mt-0.5">14 de Noviembre de 2026</strong>
+              <strong id="diploma-date" class="text-slate-700 block mt-0.5"></strong>
             </div>
             <div>
               <span>Proyecto Editorial:</span>
@@ -518,7 +523,7 @@
         </div>
 
         <div class="flex justify-center mt-6 no-print">
-          <button onclick="app.printDiploma()" class="btn-bounce px-8 py-3 rounded-2xl font-black text-sm text-white bg-amber-500 hover:bg-amber-600 shadow-md flex items-center gap-2">
+          <button onclick="app.printSection('diploma')" class="btn-bounce px-8 py-3 rounded-2xl font-black text-sm text-white bg-amber-500 hover:bg-amber-600 shadow-md flex items-center gap-2">
             <span>🖨️ Imprimir Diploma Oficial (Ctrl + P)</span>
           </button>
         </div>
